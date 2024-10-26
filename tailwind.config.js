@@ -1,3 +1,4 @@
+
 const withMT = require("@material-tailwind/react/utils/withMT");
  
 module.exports = withMT({
@@ -6,7 +7,11 @@ module.exports = withMT({
     "./src/**/*.{js,ts,jsx,tsx}",
     ],
   theme: {
-    extend: {},
+      extends:  {
+        fontFamily : {
+          fontStyle : "roboto"
+        }
+      }
   },
   plugins: [require("daisyui")],
 });
