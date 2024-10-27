@@ -1,4 +1,5 @@
 import Available from "../Available/Available";
+import BestSellingBanner from "../BestSellingBanner/BestSellingBanner";
 import Slider from "../Slider/Slider";
 
 
@@ -7,6 +8,7 @@ const Home = () => {
         <div>
             <Slider/>
             <Available/>
+            <BestSellingBanner/>
         </div>
     );
 };

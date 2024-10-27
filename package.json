@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.10",
+    "aos": "^2.3.4",
     "axios": "^1.7.7",
     "localforage": "^1.10.0",
     "match-sorter": "^7.0.0",

@@ -104,7 +104,7 @@ ACCESSORIES
 </div>
   {/* First Navbar end */}
   {/*Second Navbar */}
-  <div className={`navbar bg-[#0604046c] px-8 text-white ${scrolled ? 'fixed top-0 left-0  w-full shadow-md z-10 ' : ''}`} >
+  <div  className={`navbar bg-[#0604046c] px-8 text-white ${scrolled ? 'fixed top-0 left-0  w-full shadow-md z-10 ' : ''}`} >
   <div className="navbar-start">
   <React.Fragment>
       <p className="text-2xl" onClick={openDrawer}><LuMenuSquare/></p>
