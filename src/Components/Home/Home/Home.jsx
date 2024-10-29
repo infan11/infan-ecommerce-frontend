@@ -1,6 +1,8 @@
 import Available from "../Available/Available";
 import BestSellingBanner from "../BestSellingBanner/BestSellingBanner";
+import Delivary from "../Delivery/Delivary";
 import Slider from "../Slider/Slider";
+import BooksHomeBanner from "../booksHomeBanner/booksHomeBanner";
 
 
 const Home = () => {
@@ -9,6 +11,9 @@ const Home = () => {
             <Slider/>
             <Available/>
             <BestSellingBanner/>
+            <BooksHomeBanner/>
+            <Delivary/>
+        
         </div>
     );
 };
