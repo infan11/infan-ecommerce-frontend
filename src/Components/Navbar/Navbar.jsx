@@ -7,8 +7,14 @@ import { IoManOutline } from "react-icons/io5";
 import { ImBooks } from "react-icons/im";
 import { CgAppleWatch } from "react-icons/cg";
 import {Drawer, Button,Typography,IconButton,List, ListItem,ListItemPrefix,ListItemSuffix, Chip,} from "@material-tailwind/react";
+import useAuth from "../Hooks/useAuth";
 
 const Navbar = () => {
+  const {user,logout} = useAuth();
+  const handleLogout = () => {
+      logout()
+      .then( () => {})
+  }
   const [open, setOpen] = React.useState(false);
 const openDrawer = () => setOpen(true);
 const closeDrawer = () => setOpen(false);
@@ -88,18 +94,24 @@ ACCESSORIES
 </div>
 <p className="mr-3 font-bold  hidden md:block">or</p>
 
-<button>
+
 <div className="">
-<NavLink 
+{
+   user ? <>
+      <Button onClick={handleLogout}>Logout</Button>
+    </> : <>
+       <NavLink 
   to="/register"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? " hidden md:block "  : " hidden md:block font-bold  btn btn-outline hover:bg-purple-400   "
+    isPending ? "pending" : isActive ? " hidden md:block "  : " hidden md:block font-bold  border-4 px-5 p-3 rounded-full  hover:bg-green-400  hover:text-white  "
   }
 >
   SIGNUP
-</NavLink>
+</NavLink>   
+   </>
+}
 </div>
-</button>
+
   </div>
 </div>
   {/* First Navbar end */}
