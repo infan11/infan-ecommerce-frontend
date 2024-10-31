@@ -10,6 +10,11 @@ import Register from "../Components/Authentication/Register/Register";
 import Dashboard from "../Components/Dashboard/Dashboard/Dashboard.JSX";
 import Accessories from "../Components/Accessories/Accessories/Accessories";
 import Books from "../Components/Books/Books/Books";
+import AdminHome from "../Components/Dashboard/AdminHome/AdminHome";
+import AddItem from "../Components/Dashboard/AddItem/AddItem";
+import AllUser from "../Components/Dashboard/AllUser/AllUser";
+import MyCart from "../Components/Dashboard/MyCart/MyCart";
+import PaymentHistory from "../Components/Dashboard/PaymentHistory/PaymentHistory";
 
 export const router = createBrowserRouter([
     {
@@ -47,6 +52,28 @@ export const router = createBrowserRouter([
     },
     {
         path : "/dashboard",
-        element : <Dashboard/>
+        element : <Dashboard/>,
+        children : [
+            {
+                path: "/dashboard/adminHome",
+                 element : <AdminHome></AdminHome>
+            },
+            {
+                path: "/dashboard/addItem",
+                 element :  <AddItem/>
+            },
+            {
+                path: "/dashboard/allUser",
+                 element : <AllUser/>
+            },
+            {
+                path: "/dashboard/myCart",
+                 element : <MyCart/>
+            },
+            {
+                path: "/dashboard/paymentHistory",
+                 element : <PaymentHistory/>
+            },
+        ]
     },
 ]);

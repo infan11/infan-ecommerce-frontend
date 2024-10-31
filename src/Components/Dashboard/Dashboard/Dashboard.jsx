@@ -61,7 +61,7 @@ const Dashboard = () => {
           </IconButton>
         </div>
         <List>
-       { user ? <>   <Link to={"/adminHome"}>
+       { user ? <>   <Link to={"/dashboard/adminHome"}>
           <ListItem>
             <ListItemPrefix>
           <p className='text-xl'>  <MdAdminPanelSettings /></p>
@@ -69,7 +69,7 @@ const Dashboard = () => {
             Admin Home
           </ListItem>
           </Link>
-         <Link  to={"/addItem"}>
+         <Link  to={"/dashboard/addItem"}>
          <ListItem>
             <ListItemPrefix>
              <p className='text-xl'><IoAddSharp /></p>
@@ -85,7 +85,7 @@ const Dashboard = () => {
             </ListItemSuffix>
           </ListItem>
          </Link>
-    <Link to={"/allUser"}>
+    <Link to={"/dashboard/allUser"}>
     <ListItem>
             <ListItemPrefix>
             <svg
@@ -104,7 +104,7 @@ const Dashboard = () => {
             All User
           </ListItem>
     </Link>
-         <Link to={"/myCart"}>
+         <Link to={"/dashboard/myCart"}>
          <ListItem>
             <ListItemPrefix>
             <svg
@@ -124,7 +124,7 @@ const Dashboard = () => {
           </ListItem>
          </Link>
 
-     <Link  to={"/paymentHistory"}>
+     <Link  to={"/dashboard/paymentHistory"}>
      <ListItem>
             <ListItemPrefix>
            <p className='text-xl'> <FaHistory /></p>
