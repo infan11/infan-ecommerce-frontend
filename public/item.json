@@ -1,0 +1,138 @@
+[
+    {
+        "name": "Casual Shirt",
+        "category": "Mens_Cloth",
+        "product_category": "Casual Shirt",
+        "description": "Comfortable cotton casual shirt perfect for everyday wear. Features a regular fit with a soft, breathable fabric. Available in various colors. Ideal for warm weather. Lightweight, durable, and machine washable. Perfect choice for casual outings or weekend relaxation. Combines style with functionality.",
+        "price": 35.99,
+        "discountedPrice": 29.99,
+        "photo": "https://i.ibb.co.com/bsQBH7S/2014-Hot-Mens-Slim-Fit-Shirt-cotton-casual-Mandarin-collar-shirts-Solid-For-Men-Blue-Gray.jpg"
+    },
+    {
+        "name": "Formal Shirt",
+        "category": "Mens_Cloth",
+        "product_category": "Formal Shirt",
+        "description": "Elegant formal shirt with a tailored fit for a professional look. Made from premium fabric for all-day comfort. Easy-care and wrinkle-resistant. Available in classic colors. Great for office wear and formal occasions. Modern design with attention to detail.",
+        "price": 45.00,
+        "discountedPrice": 38.50,
+        "photo": "https://i.ibb.co.com/yVY4Pr1/0202205819-YLS-1-Mens-Casual-Shirt-Fashion-Bug-Sri-Lanka.jpg"
+    },
+    {
+        "name": "Polo T-shirt",
+        "category": "Mens_Cloth",
+        "product_category": "Polo_T-shirt",
+        "description": "Classic polo t-shirt featuring a ribbed collar and button placket. Made from high-quality cotton for a breathable, soft feel. Ideal for casual and semi-formal occasions. Comes in a variety of colors. Suitable for all seasons.",
+        "price": 25.99,
+        "discountedPrice": 20.99,
+        "photo": "https://i.ibb.co.com/yVY4Pr1/0202205819-YLS-1-Mens-Casual-Shirt-Fashion-Bug-Sri-Lanka.jpg"
+    },
+    {
+        "name": "History Book",
+        "category": "Book",
+        "product_category": "History Book",
+        "description": "Comprehensive history book covering ancient to modern times. Includes timelines, maps, and engaging illustrations. Ideal for history enthusiasts and students. Provides insights into cultural, social, and political evolution across centuries. Hardcover, well-researched content.",
+        "price": 15.99,
+        "discountedPrice": 12.99,
+        "photo": "https://i.ibb.co.com/RSXzghk/999-192x254.webp"
+    },
+    {
+        "name": "Science Book",
+        "category": "Book",
+        "product_category": "Science Book",
+        "description": "Engaging science book covering fundamental concepts in physics, chemistry, and biology. Ideal for curious minds and students. Illustrated with diagrams, easy-to-understand explanations, and experiments. Suitable for beginners and intermediates.",
+        "price": 17.99,
+        "discountedPrice": 14.49,
+        "photo": "https://i.ibb.co/qMxCQH8/science-book.jpg"
+    },
+    {
+        "name": "Apple iPhone 13",
+        "category": "Mobiles",
+        "product_category": "Apple",
+        "description": "iPhone 13 with a 6.1-inch Super Retina XDR display. Powered by the A15 Bionic chip for high performance. Dual-camera system with 12MP ultra-wide and wide cameras. 5G enabled. Comes in multiple storage capacities and colors.",
+        "price": 799.99,
+        "discountedPrice": 749.99,
+        "photo": "https://i.ibb.co/QDq4ZWV/iphone-13.jpg"
+    },
+    {
+        "name": "Samsung Galaxy S21",
+        "category": "Mobiles",
+        "product_category": "Samsung",
+        "description": "Samsung Galaxy S21 featuring a 6.2-inch AMOLED display. Exynos 2100 chipset with powerful processing capabilities. 5G compatible. Triple-lens camera system with 64MP main sensor. Sleek design and high-resolution display.",
+        "price": 699.99,
+        "discountedPrice": 649.99,
+        "photo": "https://i.ibb.co/dj5x9Ry/samsung-galaxy-note20-ultra-1.jpg"
+    },
+    {
+        "name": "Oppo Reno 6",
+        "category": "Mobiles",
+        "product_category": "Oppo",
+        "description": "Oppo Reno 6 with a 6.4-inch AMOLED display and MediaTek Dimensity 900 processor. 64MP AI quad-camera system. Supports fast charging. Available in attractive colors. Smooth performance for multimedia and gaming.",
+        "price": 499.99,
+        "discountedPrice": 469.99,
+        "photo": "https://i.ibb.co/N7FttcP/download-3.jpg"
+    },
+    {
+        "name": "Xiaomi Mi 11",
+        "category": "Mobiles",
+        "product_category": "Xiaomi",
+        "description": "Xiaomi Mi 11 with 6.81-inch AMOLED display and Snapdragon 888 processor. 108MP main camera with ultra-high resolution. 5G enabled with fast charging support. Ideal for photography enthusiasts and tech-savvy users.",
+        "price": 749.99,
+        "discountedPrice": 699.99,
+        "photo": "https://i.ibb.co/cYHg2Kn/xiaomi-redmi-note-9-4.jpg"
+    },
+    {
+        "name": "Vivo V21",
+        "category": "Mobiles",
+        "product_category": "Vivo",
+        "description": "Vivo V21 with a 6.44-inch AMOLED display. 64MP main camera with OIS. MediaTek Dimensity 800U processor with 5G compatibility. Slim design, available in stylish colors. Ideal for selfies and night photography.",
+        "price": 429.99,
+        "discountedPrice": 399.99,
+        "photo": "https://i.ibb.co/0JxpLXj/download-4.jpg"
+    },
+    {
+        "name": "Tecno Spark 7",
+        "category": "Mobiles",
+        "product_category": "Tecno",
+        "description": "Tecno Spark 7 with a 6.52-inch HD+ display. MediaTek Helio A25 processor with efficient performance. Dual-camera setup with 16MP main sensor. Ideal for everyday use with decent battery life. Affordable and stylish.",
+        "price": 149.99,
+        "discountedPrice": 129.99,
+        "photo": "https://i.ibb.co/3v5T6Fb/tecno-spark-7.jpg"
+    },
+    {
+        "name": "Apple MacBook Air M1",
+        "category": "Laptop",
+        "product_category": "Apple",
+        "description": "Apple MacBook Air with M1 chip, delivering exceptional speed and efficiency. 13.3-inch Retina display with vibrant colors. Fanless design ensures silent operation. Lightweight and portable. Perfect for professionals and students.",
+        "price": 999.99,
+        "discountedPrice": 899.99,
+        "photo": "https://i.ibb.co/hmHj3FR/OPPO-A52.jpg"
+    },
+    {
+        "name": "Lenovo ThinkPad X1 Carbon",
+        "category": "Laptop",
+        "product_category": "Lenovo",
+        "description": "Lenovo ThinkPad X1 Carbon with 14-inch FHD display. Powered by Intel Core i7 processor. Known for its durability and performance. Lightweight and ideal for business professionals. Long battery life for extended use.",
+        "price": 1249.99,
+        "discountedPrice": 1150.00,
+        "photo": "https://i.ibb.co/k3mFznQ/thinkpad-x1.jpg"
+    },
+    {
+        "name": "HP Spectre x360",
+        "category": "Laptop",
+        "product_category": "HP",
+        "description": "HP Spectre x360 with 13.3-inch touch display. Convertible laptop with Intel Core i7 processor. Stunning design with powerful performance. Excellent battery life. Ideal for creatives and on-the-go professionals.",
+        "price": 1299.99,
+        "discountedPrice": 1199.99,
+        "photo": "https://i.ibb.co.com/J7w58j0/OIP.jpg"
+    },
+    {
+        "name": "Walton Prelude N41",
+        "category": "Laptop",
+        "product_category": "Walton",
+        "description": "Walton Prelude N41 with 14-inch HD display. Powered by Intel Celeron processor for basic computing tasks. Affordable and portable. Ideal for students and light users. Decent battery life and essential connectivity options.",
+        "price": 349.99,
+        "discountedPrice": 329.99,
+        "photo": "https://i.ibb.co.com/xFfpH3t/download.jpg"
+        
+    }
+]

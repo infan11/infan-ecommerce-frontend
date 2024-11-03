@@ -23,10 +23,12 @@ import {
   PowerIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/solid";
+import useCart from "../Hooks/useCart";
  
 const Navbar = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const [cart] = useCart();
   const handleLogout = () => {
     logout()
       .then(() => { })
@@ -116,6 +118,14 @@ const Navbar = () => {
       }
     >
       BOOKS
+    </NavLink>
+    <NavLink
+      to="/dashboard"
+      className={({ isActive, isPending }) =>
+        isPending ? "pending" : isActive ? "text-white font-bold border-b-2 border-yellow-500 rounded" : "text-white font-bold text-[15px]  font-[Roboto]"
+      }
+    >
+      DASHBOARD
     </NavLink>
   </>
   return (
@@ -323,6 +333,21 @@ const Navbar = () => {
                     </NavLink>
                   </ListItem>
                 </Link>
+                <Link to={"dashboard"}>
+                  <ListItem>
+                    <ListItemPrefix>
+                      <p className="font-bold text-xl" >  <IoManOutline /></p>
+                    </ListItemPrefix>
+                    <NavLink
+                      to="/dashboard"
+                      className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? " font-bold rounded" : " font-bold text-[15px]  font-[Roboto]"
+                      }
+                    >
+                      DASHBOARD
+                    </NavLink>
+                  </ListItem>
+                </Link>
 
 
 
@@ -354,6 +379,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          <Link to={"/search"}>
           <button className="btn btn-ghost btn-circle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -368,10 +394,14 @@ const Navbar = () => {
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </button>
+          </Link>
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <div className="indicator">
-              <p className="text-2xl font-bold text-white" >  <HiOutlineShoppingBag /></p>
-              <span className="badge badge-sm indicator-item">8</span>
+             <Link to={"/dashboard/myCart"}>
+             <p className="text-2xl font-bold text-white" >  <HiOutlineShoppingBag /></p>
+              <span className="badge badge-sm indicator-item">{cart.length}</span>
+             </Link>
+
             </div>
           </div>
 

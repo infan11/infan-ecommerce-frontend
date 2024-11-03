@@ -9,7 +9,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, setError,formState: { errors ,} } = useForm();
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/"

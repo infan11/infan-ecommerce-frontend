@@ -15,6 +15,10 @@ import AddItem from "../Components/Dashboard/AddItem/AddItem";
 import AllUser from "../Components/Dashboard/AllUser/AllUser";
 import MyCart from "../Components/Dashboard/MyCart/MyCart";
 import PaymentHistory from "../Components/Dashboard/PaymentHistory/PaymentHistory";
+import Details from "../Components/Mens/Details/Details";
+import Search from "../Components/Search/Search";
+import BooksAddItem from "../Components/Dashboard/BooksAddItem/BooksAddItem";
+import BookDetails from "../Components/Books/BookDetails/BookDetails";
 
 export const router = createBrowserRouter([
     {
@@ -28,9 +32,20 @@ export const router = createBrowserRouter([
         },
         {
             path : "/mens",
-            element : <Mens/>
+            element : <Mens/>,
+         
         },
-        {
+       {
+        path :'/details/:id',
+        element : <Details/>,
+        
+       },
+       {
+        path :'/booksDetails/:id',
+        element : <BookDetails/>
+        
+       }
+        ,{
             path : "/accessories",
             element : <Accessories/>
         },
@@ -45,6 +60,10 @@ export const router = createBrowserRouter([
         {
             path : "/register",
             element : <Register/>
+        },
+        {
+            path : "/search",
+            element : <Search/>
         },
 
         ],
@@ -61,6 +80,10 @@ export const router = createBrowserRouter([
             {
                 path: "/dashboard/addItem",
                  element :  <AddItem/>
+            },
+            {
+                path: "/dashboard/booksAddItem",
+                 element :  <BooksAddItem/>
             },
             {
                 path: "/dashboard/allUser",
