@@ -22,9 +22,10 @@ const BooksAddItem = () => {
         if (localCategory?.value === "Book") {
             options = [
                 { value: "Quran_and_Tafsir", label: "Quran and Tafsir" },
+                { value: "Biography_of_Prophet", label: "Biography_of_Prophet" },
                 { value: "Hadith", label: "Hadith" },
                 { value: "Fiqh", label: "Fiqh (Islamic Jurisprudence)" },
-                { value: "Aqidah", label: "Aqidah (Islamic Belief)" }
+                { value: "Aqidah Aqidah (Islamic Belief)", label: "Aqidah (Islamic Belief)" }
             ];
         }
 

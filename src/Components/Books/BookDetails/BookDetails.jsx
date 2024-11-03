@@ -87,10 +87,10 @@ const handleDecrement = () => {
             <div className="max-w-7xl mx-auto px-5 md:px-24 min-h-screen">
                 <div className="mt-20 grid md:grid-cols-2 lg:flex-row-reverse">
                     <div className="text-center lg:text-right">
-                        <img className="w-[500px] h-[500px] rounded-lg" src={item.photo} alt="" />
+                        <img className="w-[300px] mx-auto h-[400px] rounded-lg" src={item.photo} alt="" />
                     </div>
 
-                    <div className="bg-base-100 w-full">
+                    <div className="bg-base-100 w-full  px-3 md:px-1">
                         <p className="mt-4 md:mt-0 text-3xl md:text-4xl text-gray-700 font-bold uppercase">{item.name}</p>
                         <p className="font-bold mt-3 text-gray-800 italic">Writer : {item.writerName}</p>
                         <p className="font-bold mt-3 text-gray-800 italic">Publication : {item.productPublication}</p>

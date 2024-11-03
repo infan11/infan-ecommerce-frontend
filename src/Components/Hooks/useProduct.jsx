@@ -5,6 +5,7 @@ import useAxiosSecure from './useAxiosSecure';
 const useProduct = () => {
     const axiosSecure = useAxiosSecure();
     const { data: mensProduct = [] } = useQuery({
+        
         queryKey: ["mensProduct"],
         queryFn: async () => {
             const res = await axiosSecure.get('/addItems')

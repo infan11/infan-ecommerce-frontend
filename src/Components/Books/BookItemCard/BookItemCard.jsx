@@ -17,10 +17,10 @@ const BookItemCard = ({ item }) => {
 
                 <div className="card-body text-center items-center ">
                     <h2 className="text-[12px] font-bold ">{name}</h2>
-                    <div className="flex gap-7">
+                    {/* <div className="flex gap-7">
                         <p className=" md:text-[15px] font-bold" > Offer :  ${discountedPrice}</p>
                         <p className="md:text-[15px] font-bold"> Price: <del>${price}</del></p>
-                    </div>
+                    </div> */}
                     <div className="card-actions">
                         <Link to={`/booksDetails/${item._id}`}>
                             <button className="btn rounded-full text-white bg-black">SELECT OPTION</button>

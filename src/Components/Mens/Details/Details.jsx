@@ -71,8 +71,8 @@ const Details = ({ onSelect }) => {
                 }
   
               )
-          
-              refetch();    
+              refetch();            
+             
         }
         else{
             Swal.fire({

@@ -35,7 +35,7 @@ const Dashboard = () => {
   return (
     <div>
 
-      <div className="navbar bg-base-100  shadow-xl">
+      <div className="navbar bg-orange-900 text-white  shadow-xl">
         <div className="navbar-start">
           <div>
             <React.Fragment>
@@ -230,7 +230,7 @@ const Dashboard = () => {
 
           </div>
         </div>
-        <div className="navbar-center">
+        <div className="navbar-center ">
           <a className=" text-5xl">  <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
