@@ -96,7 +96,7 @@ const AddItem = () => {
 
     return (
         <div className="max-w-7xl mx-auto mb-10 md:px-32">
-            <SectionTitle heading={"Your Favorite"} subHeading={"ADD ITEMS"} />
+            <SectionTitle heading={"Your Favorite"} subHeading={"ADD MENS ITEMS"} />
             <div className="w-full rounded-md shadow-2xl">
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <br />

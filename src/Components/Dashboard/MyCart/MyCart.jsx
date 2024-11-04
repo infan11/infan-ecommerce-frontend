@@ -99,18 +99,18 @@ const MyCart = () => {
 
                     <div className='flex justify-evenly md:justify-end gap-12 '>
                         <p className='text-center '>Subtotal</p>
-                        <p className='text-center '>${subTotal}.00</p>
+                        <p className='text-center '>${subTotal}</p>
                     </div>
 
 
                     <div className='flex justify-evenly md:justify-end gap-12 '>
                         <p className='text-center '>Tax (15%)</p>
-                        <p className='text-center '>${tax}.00</p>
+                        <p className='text-center '>${tax}</p>
                     </div>
 
                     <div className='flex justify-evenly md:justify-end  gap-12   '>
                         <p className='text-center mr-4 '>Total</p>
-                        <p className='text-center  ml-3 font-bold text-red-400'>${total}.00</p>
+                        <p className='text-center  ml-3 font-bold text-red-400'>${total}</p>
                     </div>
                 </div>
             </div>

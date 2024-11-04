@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { imageUpload } from "../../Hooks/imageHooks";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const BooksAddItem = () => {
     const { register, handleSubmit, setValue, getValues } = useForm();
@@ -14,7 +15,7 @@ const BooksAddItem = () => {
     const [selectedProductCategory, setSelectedProductCategory] = useState(null); // Track selected product category
     const [loading, setLoading] = useState(false);
     const axiosPublic = useAxiosPublic();
-
+    const navigate = useNavigate();
     useEffect(() => {
         setLoading(true);
         let options = [];
@@ -64,11 +65,12 @@ const BooksAddItem = () => {
             photo: imageData?.data?.display_url || ""
         };
         console.log(addItems);
-        axiosPublic.post("/addBooksItem", addItems)
+        axiosPublic.post("/addItems", addItems)
             .then(res => {
                 if (res.data.insertedId) {
                     toast.success("Successfully Added Book Item");
                 }
+                navigate("/books")
             })
             .catch(() => {
                 toast.error("Failed to add item");

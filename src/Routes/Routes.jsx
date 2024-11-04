@@ -19,6 +19,13 @@ import Details from "../Components/Mens/Details/Details";
 import Search from "../Components/Search/Search";
 import BooksAddItem from "../Components/Dashboard/BooksAddItem/BooksAddItem";
 import BookDetails from "../Components/Books/BookDetails/BookDetails";
+import AddAccessories from "../Components/Dashboard/AddAccessories/AddAccessories";
+import AccessoriesDetails from "../Components/Accessories/AccessoriesDetails/AccessoriesDetails.JSX";
+import Mobile from "../Components/Mobile/Mobile/Mobile";
+import MobileDetails from "../Components/Mobile/MobileDetails/MobileDetails";
+import Laptop from "../Components/Laptop/Laptop/Laptop";
+import Perfume from "../Components/Perfume/Perfume/Perfume";
+import Watch from "../Components/Watch/Watch/Watch";
 
 export const router = createBrowserRouter([
     {
@@ -44,10 +51,32 @@ export const router = createBrowserRouter([
         path :'/booksDetails/:id',
         element : <BookDetails/>
         
-       }
+       },
+       {
+        path :'/gadgetDetails/:id',
+        element : <AccessoriesDetails/>
+        
+       },
+      
         ,{
             path : "/accessories",
             element : <Accessories/>
+        },
+        ,{
+            path : "/mobile",
+            element : <Mobile/>
+        },
+        ,{
+            path : "/laptop",
+            element : <Laptop/>
+        },
+        ,{
+            path : "/perfume",
+            element : <Perfume/>
+        },
+        ,{
+            path : "/watch",
+            element : <Watch/>
         },
         {
             path : "/books",
@@ -84,6 +113,10 @@ export const router = createBrowserRouter([
             {
                 path: "/dashboard/booksAddItem",
                  element :  <BooksAddItem/>
+            },
+            {
+                path: "/dashboard/addAccessories",
+                 element :  <AddAccessories/>
             },
             {
                 path: "/dashboard/allUser",

@@ -76,7 +76,7 @@ const Dashboard = () => {
                         <ListItemPrefix>
                           <p className='text-xl'><IoAddSharp /></p>
                         </ListItemPrefix>
-                        Add Item
+                        Add Men Items
 
                       </ListItem>
                     </Link>
@@ -86,6 +86,15 @@ const Dashboard = () => {
                           <p className='text-xl'><IoAddSharp /></p>
                         </ListItemPrefix>
                         Add Books 
+
+                      </ListItem>
+                    </Link>
+                    <Link to={"/dashboard/addAccessories"}>
+                      <ListItem>
+                        <ListItemPrefix>
+                          <p className='text-xl'><IoAddSharp /></p>
+                        </ListItemPrefix>
+                        Add Accessories
 
                       </ListItem>
                     </Link>

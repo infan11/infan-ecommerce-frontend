@@ -8,6 +8,10 @@ import { ImBooks } from "react-icons/im";
 import { CgAppleWatch } from "react-icons/cg";
 import { Drawer, Button, Typography, IconButton, List, ListItem, ListItemPrefix, ListItemSuffix, Chip, } from "@material-tailwind/react";
 import useAuth from "../Hooks/useAuth";
+import { CiMobile3 } from "react-icons/ci";
+import { LuLaptop2 } from "react-icons/lu";
+import { TbPerfume } from "react-icons/tb";
+import { BsWatch } from "react-icons/bs";
 import {
   Avatar,
   Menu,
@@ -110,6 +114,42 @@ const Navbar = () => {
     >
 
       ACCESSORIES
+    </NavLink>
+    <NavLink
+      to="/mobile"
+      className={({ isActive, isPending }) =>
+        isPending ? "pending" : isActive ? "text-white font-bold border-b-2 border-yellow-500 rounded" : "text-white font-bold text-[15px]  font-[Roboto]"
+      }
+    >
+
+      MOBILES
+    </NavLink>
+    <NavLink
+      to="/laptop"
+      className={({ isActive, isPending }) =>
+        isPending ? "pending" : isActive ? "text-white font-bold border-b-2 border-yellow-500 rounded" : "text-white font-bold text-[15px]  font-[Roboto]"
+      }
+    >
+
+      LAPTOP
+    </NavLink>
+    <NavLink
+      to="/perfume"
+      className={({ isActive, isPending }) =>
+        isPending ? "pending" : isActive ? "text-white font-bold border-b-2 border-yellow-500 rounded" : "text-white font-bold text-[15px]  font-[Roboto]"
+      }
+    >
+
+      PERFUME
+    </NavLink>
+    <NavLink
+      to="/watch"
+      className={({ isActive, isPending }) =>
+        isPending ? "pending" : isActive ? "text-white font-bold border-b-2 border-yellow-500 rounded" : "text-white font-bold text-[15px]  font-[Roboto]"
+      }
+    >
+
+      WATCH
     </NavLink>
     <NavLink
       to="/books"
@@ -303,10 +343,70 @@ const Navbar = () => {
                     </NavLink>
                   </ListItem>
                 </Link>
+                <Link to={"/mobile"}>
+                  <ListItem>
+                    <ListItemPrefix>
+                      <p className="font-bold text-xl" >  <CiMobile3 /></p>
+                    </ListItemPrefix>
+                    <NavLink
+
+                      className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? " font-bold rounded" : " font-bold text-[15px]  font-[Roboto]"
+                      }
+                    >
+                      MOBILES
+                    </NavLink>
+                  </ListItem>
+                </Link>
+                <Link to={"/laptop"}>
+                  <ListItem>
+                    <ListItemPrefix>
+                      <p className="font-bold text-xl" >  <LuLaptop2 /></p>
+                    </ListItemPrefix>
+                    <NavLink
+
+                      className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? " font-bold rounded" : " font-bold text-[15px]  font-[Roboto]"
+                      }
+                    >
+                      LAPTOP
+                    </NavLink>
+                  </ListItem>
+                </Link>
+                <Link to={"/perfume"}>
+                  <ListItem>
+                    <ListItemPrefix>
+                      <p className="font-bold text-xl" >  <CiMobile3 /></p>
+                    </ListItemPrefix>
+                    <NavLink
+
+                      className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? " font-bold rounded" : " font-bold text-[15px]  font-[Roboto]"
+                      }
+                    >
+                      PERFUME
+                    </NavLink>
+                  </ListItem>
+                </Link>
+                <Link to={"/watch"}>
+                  <ListItem>
+                    <ListItemPrefix>
+                      <p className="font-bold text-xl" > <TbPerfume /></p>
+                    </ListItemPrefix>
+                    <NavLink
+
+                      className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? " font-bold rounded" : " font-bold text-[15px]  font-[Roboto]"
+                      }
+                    >
+                      WATCH
+                    </NavLink>
+                  </ListItem>
+                </Link>
                 <Link to={"/books"}>
                   <ListItem>
                     <ListItemPrefix>
-                      <p className="font-bold text-xl" ><ImBooks /></p>
+                      <p className="font-bold text-xl" ><BsWatch /></p>
                     </ListItemPrefix>
                     <NavLink
                       to="/mens"
@@ -336,7 +436,18 @@ const Navbar = () => {
                 <Link to={"dashboard"}>
                   <ListItem>
                     <ListItemPrefix>
-                      <p className="font-bold text-xl" >  <IoManOutline /></p>
+                    <a className=" text-5xl">  <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="h-5 w-5"
+          >
+            <path
+              fillRule="evenodd"
+              d="M2.25 2.25a.75.75 0 000 1.5H3v10.5a3 3 0 003 3h1.21l-1.172 3.513a.75.75 0 001.424.474l.329-.987h8.418l.33.987a.75.75 0 001.422-.474l-1.17-3.513H18a3 3 0 003-3V3.75h.75a.75.75 0 000-1.5H2.25zm6.04 16.5l.5-1.5h6.42l.5 1.5H8.29zm7.46-12a.75.75 0 00-1.5 0v6a.75.75 0 001.5 0v-6zm-3 2.25a.75.75 0 00-1.5 0v3.75a.75.75 0 001.5 0V9zm-3 2.25a.75.75 0 00-1.5 0v1.5a.75.75 0 001.5 0v-1.5z"
+              clipRule="evenodd"
+            />
+          </svg></a>
                     </ListItemPrefix>
                     <NavLink
                       to="/dashboard"

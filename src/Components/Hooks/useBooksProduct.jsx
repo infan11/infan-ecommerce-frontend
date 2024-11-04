@@ -7,7 +7,7 @@ const useBooksProduct = () => {
     const { data: booksProduct = [] } = useQuery({
         queryKey: ["booksProduct"],
         queryFn: async () => {
-            const res = await axiosSecure.get("/addBooksItem")
+            const res = await axiosSecure.get("/addItems")
            console.log( "data",res.data);
            return res.data 
         }
