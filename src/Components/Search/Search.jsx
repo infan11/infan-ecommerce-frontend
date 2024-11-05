@@ -1,75 +1,73 @@
-import { useEffect, useState } from "react";
-import { IoSearch } from "react-icons/io5";
-import { Link } from "react-router-dom";
-import useAxiosSecure from "../Hooks/useAxiosSecure";
+import React, { useState, useEffect } from 'react';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import useAxiosSecure from '../Hooks/useAxiosSecure';
+import { Button } from '@material-tailwind/react';
 
-const Search = () => {
-    const axiosSecure = useAxiosSecure();
-    const [data, setData] = useState([]); // Original data from the API
-    const [filteredProducts, setFilteredProducts] = useState([]); // Products filtered by search
+function SearchFilterComponent() {
+  const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const axiosSecure = useAxiosSecure(null);
 
-    // Fetch product data on component mount
-    useEffect(() => {
-        axiosSecure.get("/addItems")
-            .then(res => {
-                console.log(res.data); // Log the fetched data
-                setData(res.data); // Set original data
-                setFilteredProducts(res.data); // Initialize filtered products to all products
-            })
-            .catch(error => console.log(error));
-    }, [axiosSecure]);
+ 
 
-    // Filter function for the search bar
-    const filter = (event) => {
-        const query = event.target.value.toLowerCase(); // Get the search query
-        // Filter the products based on the category or name
-        const filtered = data.filter(product => 
-            product.product_category.toLowerCase().includes(query) || // Filter by category
-            product.name.toLowerCase().includes(query) // Filter by name
-        );
-        setFilteredProducts(filtered); // Update filtered products
-    };
+  useEffect(() => {
+    axiosSecure.get('/addItems')
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(error => console.error("Error loading data:", error));
+  }, []);
 
-    return (
-        <div className="max-w-7xl mx-auto px-10 min-h-screen mt-4">
-            <div className="flex relative">
-                <input 
-                    onChange={filter}
-                    type="text" 
-                    placeholder="Search Your Item" 
-                    className="w-full border-white border-2 p-3 px-14 font-bold rounded-full bg-transparent mb-8 fromDivNavD" 
-                />
-                <div className="absolute mt-4 text-xl flex items-center pl-4">
-                    <IoSearch />
-                </div>
-            </div>
-            <div className="max-w-7xl mx-auto px-7 mt-5 min-h-screen">
-                <div className="grid md:grid-cols-3 gap-5">
-                    {filteredProducts.length > 0 ? (
-                        filteredProducts.map((productAdd) => (
-                            <div key={productAdd._id} className="card card-compact w-80 mx-auto mt-1 cardA">
-                                <figure>
-                                    <img src={productAdd.photo} className="w-full h-60 fromDivNavM" alt={productAdd.name} />
-                                </figure>
-                                <div className="card-body">
-                                    <h2 className="font-extrabold text-2xl font-mono">{productAdd.name}</h2>
-                                    <p className="text-xl font-bold">{productAdd.discountedPrice}</p>
-                                    <p className="text-[16px]"><del>{productAdd.price}</del></p>
-                                    <div className="card-actions">
-                                        <Link className="btn fromDivNavM w-full rounded-full px-11 font-bold" to={`/details/${productAdd._id}`}>
-                                            <button className="">Details</button>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        ))
-                    ) : (
-                        <p className="font-bold text-center mt-5">Unavailable Search Item</p>
-                    )}
-                </div>
-            </div>
+
+  const filteredData = data.filter(item =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+    return <span>Your browser does not support speech recognition.</span>;
+  }
+
+
+
+  return (
+    <div className="max-w-7xl mx-auto md:px-24">
+      <div className="w-full max-w-sm min-w-[200px]">
+        <div className="relative flex items-center">
+          <div className="absolute flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 top-2.5 ml-3 text-slate-600">
+              <path d="M8.25 4.5a3.75 3.75 0 1 1 7.5 0v8.25a3.75 3.75 0 1 1-7.5 0V4.5Z" />
+              <path d="M6 10.5a.75.75 0 0 1 .75.75v1.5a5.25 5.25 0 1 0 10.5 0v-1.5a.75.75 0 0 1 1.5 0v1.5a6.751 6.751 0 0 1-6 6.709v2.291h3a.75.75 0 0 1 0 1.5h-7.5a.75.75 0 0 1 0-1.5h3v-2.291a6.751 6.751 0 0 1-6-6.709v-1.5A.75.75 0 0 1 6 10.5Z" />
+            </svg>
+            <div className="h-6 border-l border-slate-200 ml-2.5"></div>
+          </div>
+
+          <input
+            className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md pr-3 pl-14 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+            type="text"
+            placeholder="Search items..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+
+         
         </div>
-    );
-};
+      </div>
 
-export default Search;
+      <div className="mt-4">
+        {filteredData.length > 0 ? (
+          <ul>
+            {filteredData.map((item) => (
+              <li key={item.id} className="border-b border-slate-200 py-2">
+                {item.name}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-slate-500">No items found</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default SearchFilterComponent;
