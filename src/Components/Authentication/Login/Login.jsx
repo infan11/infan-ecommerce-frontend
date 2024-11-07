@@ -77,6 +77,11 @@ const Login = () => {
                 {errors.password?.type === "setValueAs" && <span className="text-red-500 font-bold italic">This field is required</span>}
                 {errors.password?.type === "minLength" && <span className="text-red-500 font-bold italic">password must be 6 Characters</span>}
                 {errors.password?.type === "maxLength" && <span className="text-red-500 italic font-bold">password only 10 Characters</span>}
+          <Link to={"/forgetPass"}>
+          <label className="label"> 
+            <a href="#" className="label-text-alt link link-hover font-bold">Reset password?</a>
+          </label>
+          </Link>
        
         </div>
         <div className="-ml-2.5">

@@ -25,7 +25,7 @@ const AccessoriesCard = ({item}) => {
                       <p className="md:text-[15px] font-bold"> Price: <del>${price}</del></p>
                       </div>
                       <div className="card-actions">
-                        <Link to={`/accessoriesDetails/${item._id}`}>
+                        <Link to={`/gadgetDetails/${item._id}`}>
                         <button className="btn rounded-full text-white bg-black">SELECT OPTION</button>
                         </Link>
                       </div>

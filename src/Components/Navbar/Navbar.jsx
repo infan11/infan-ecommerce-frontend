@@ -42,6 +42,7 @@ const Navbar = () => {
     {
       label: "My Profile",
       icon: UserCircleIcon,
+      action : () => navigate("/myProfile")
 
     },
     {

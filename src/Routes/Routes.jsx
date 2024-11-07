@@ -26,6 +26,8 @@ import MobileDetails from "../Components/Mobile/MobileDetails/MobileDetails";
 import Laptop from "../Components/Laptop/Laptop/Laptop";
 import Perfume from "../Components/Perfume/Perfume/Perfume";
 import Watch from "../Components/Watch/Watch/Watch";
+import ForgetPass from "../Components/ForgetPass/ForgetPass";
+import MyProfile from "../Components/MyProfile/MyProfile";
 
 export const router = createBrowserRouter([
     {
@@ -87,12 +89,20 @@ export const router = createBrowserRouter([
             element : <Login/>
         },
         {
+            path : "/forgetPass",
+            element : <ForgetPass/>
+        },
+        {
             path : "/register",
             element : <Register/>
         },
         {
             path : "/search",
             element : <Search/>
+        },
+        {
+            path : "/myProfile",
+            element : <MyProfile/>
         },
 
         ],

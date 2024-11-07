@@ -94,7 +94,7 @@ const Dashboard = () => {
                         <ListItemPrefix>
                           <p className='text-xl'><IoAddSharp /></p>
                         </ListItemPrefix>
-                        Add Accessories
+                        Add Gadget Item
 
                       </ListItem>
                     </Link>
