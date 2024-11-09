@@ -28,6 +28,7 @@ import Perfume from "../Components/Perfume/Perfume/Perfume";
 import Watch from "../Components/Watch/Watch/Watch";
 import ForgetPass from "../Components/ForgetPass/ForgetPass";
 import MyProfile from "../Components/MyProfile/MyProfile";
+import PrivateRoutes from "../Components/PrivateRoutes/PrivateRoutes";
 
 export const router = createBrowserRouter([
     {
@@ -41,7 +42,7 @@ export const router = createBrowserRouter([
         },
         {
             path : "/mens",
-            element : <Mens/>,
+            element :<PrivateRoutes> <Mens/></PrivateRoutes>,
          
         },
        {

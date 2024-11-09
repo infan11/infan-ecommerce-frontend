@@ -18,7 +18,7 @@ import {
   MenuHandler,
   MenuItem,
   MenuList,
- 
+
 } from "@material-tailwind/react";
 import {
   Cog6ToothIcon,
@@ -28,21 +28,22 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/solid";
 import useCart from "../Hooks/useCart";
- 
+
 const Navbar = () => {
   const { user, logout } = useAuth();
+  console.log(user);
   const navigate = useNavigate();
   const [cart] = useCart();
   const handleLogout = () => {
     logout()
       .then(() => { })
-      navigate("/login")
+    navigate("/login")
   }
   const profileMenuItems = [
     {
       label: "My Profile",
       icon: UserCircleIcon,
-      action : () => navigate("/myProfile")
+      action: () => navigate("/myProfile")
 
     },
     {
@@ -52,26 +53,26 @@ const Navbar = () => {
     {
       label: "Dashboard",
       icon: InboxArrowDownIcon,
-      action : () => navigate("/dashboard")
+      action: () => navigate("/dashboard")
     },
     {
       label: "Help",
       icon: LifebuoyIcon,
     },
-     user ? {
+    user ? {
       label: "Sign Out",
       icon: PowerIcon,
-      action : handleLogout
-    } :{
+      action: handleLogout
+    } : {
       label: "Login",
       icon: PowerIcon,
-      action : () => navigate("/login")
+      action: () => navigate("/login")
     },
   ];
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const closeMenu = () => setIsMenuOpen(false);
- 
- 
+
+
   const [open, setOpen] = React.useState(false);
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
@@ -189,59 +190,58 @@ const Navbar = () => {
           <div className="">
             {
               user ? <>
-               <div>
-               <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
-      <MenuHandler>
-        <Button
-          variant="text"
-          color="blue-gray"
-          className="flex items-center rounded-full p-0"
-        >
-          <Avatar
-            variant="circular"
-            size="md"
-            alt="tania andrew"
-            withBorder={true}
-            color="blue-gray"
-            className=" p-0.5"
-            src={"https://docs.material-tailwind.com/img/face-2.jpg"}
-          />
-        </Button>
-      </MenuHandler>
-      <MenuList className="p-1">
-        {profileMenuItems.map(({ label, icon, action  }, key) => {
-          const isLastItem = key === profileMenuItems.length - 1;
-          return (
-            <MenuItem
-              key={label}
-               onClick={() => {
-                closeMenu();
-                action & action();
-               }}
-              className={`flex items-center gap-2 rounded ${
-                isLastItem
-                  ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
-                  : ""
-              }`}
-            >
-              {React.createElement(icon, {
-                className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
-                strokeWidth: 2,
-              })}
-              <Typography
-                as="span"
-                variant="small"
-                className="font-normal"
-                color={isLastItem ? "red" : "inherit"}
-              >
-                {label}
-              </Typography>
-            </MenuItem>
-          );
-        })}
-      </MenuList>
-    </Menu>
-               </div>
+                <div>
+                  <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
+                    <MenuHandler>
+                      <Button
+                        variant="text"
+                        color="blue-gray"
+                        className="flex items-center rounded-full p-0"
+                      >
+                        <Avatar
+                          variant="circular"
+                          size="md"
+                          alt="User Avatar"
+                          withBorder={true}
+                          color="blue-gray"
+                          className="p-0.5"
+                          src={user?.photoURL?.url || "path/to/default-avatar.png"} // Default fallback
+                        />
+                      </Button>
+                    </MenuHandler>
+                    <MenuList className="p-1">
+                      {profileMenuItems.map(({ label, icon, action }, key) => {
+                        const isLastItem = key === profileMenuItems.length - 1;
+                        return (
+                          <MenuItem
+                            key={label}
+                            onClick={() => {
+                              closeMenu();
+                              action & action();
+                            }}
+                            className={`flex items-center gap-2 rounded ${isLastItem
+                              ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
+                              : ""
+                              }`}
+                          >
+                            {React.createElement(icon, {
+                              className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
+                              strokeWidth: 2,
+                            })}
+                            <Typography
+                              as="span"
+                              variant="small"
+                              className="font-normal"
+                              color={isLastItem ? "red" : "inherit"}
+                            >
+                              {label}
+                            </Typography>
+                          </MenuItem>
+                        );
+                      })}
+                    </MenuList>
+                  </Menu>
+                </div>
               </> : <>
                 <div className="flex" >
                   <NavLink
@@ -437,18 +437,18 @@ const Navbar = () => {
                 <Link to={"dashboard"}>
                   <ListItem>
                     <ListItemPrefix>
-                    <a className=" text-5xl">  <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="h-5 w-5"
-          >
-            <path
-              fillRule="evenodd"
-              d="M2.25 2.25a.75.75 0 000 1.5H3v10.5a3 3 0 003 3h1.21l-1.172 3.513a.75.75 0 001.424.474l.329-.987h8.418l.33.987a.75.75 0 001.422-.474l-1.17-3.513H18a3 3 0 003-3V3.75h.75a.75.75 0 000-1.5H2.25zm6.04 16.5l.5-1.5h6.42l.5 1.5H8.29zm7.46-12a.75.75 0 00-1.5 0v6a.75.75 0 001.5 0v-6zm-3 2.25a.75.75 0 00-1.5 0v3.75a.75.75 0 001.5 0V9zm-3 2.25a.75.75 0 00-1.5 0v1.5a.75.75 0 001.5 0v-1.5z"
-              clipRule="evenodd"
-            />
-          </svg></a>
+                      <a className=" text-5xl">  <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="h-5 w-5"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M2.25 2.25a.75.75 0 000 1.5H3v10.5a3 3 0 003 3h1.21l-1.172 3.513a.75.75 0 001.424.474l.329-.987h8.418l.33.987a.75.75 0 001.422-.474l-1.17-3.513H18a3 3 0 003-3V3.75h.75a.75.75 0 000-1.5H2.25zm6.04 16.5l.5-1.5h6.42l.5 1.5H8.29zm7.46-12a.75.75 0 00-1.5 0v6a.75.75 0 001.5 0v-6zm-3 2.25a.75.75 0 00-1.5 0v3.75a.75.75 0 001.5 0V9zm-3 2.25a.75.75 0 00-1.5 0v1.5a.75.75 0 001.5 0v-1.5z"
+                          clipRule="evenodd"
+                        />
+                      </svg></a>
                     </ListItemPrefix>
                     <NavLink
                       to="/dashboard"
@@ -492,27 +492,27 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           <Link to={"/search"}>
-          <button className="btn btn-ghost btn-circle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </button>
+            <button className="btn btn-ghost btn-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
           </Link>
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <div className="indicator">
-             <Link to={"/dashboard/myCart"}>
-             <p className="text-2xl font-bold text-white" >  <HiOutlineShoppingBag /></p>
-              <span className="badge badge-sm indicator-item">{cart.length}</span>
-             </Link>
+              <Link to={"/dashboard/myCart"}>
+                <p className="text-2xl font-bold text-white" >  <HiOutlineShoppingBag /></p>
+                <span className="badge badge-sm indicator-item">{cart.length}</span>
+              </Link>
 
             </div>
           </div>

@@ -27,7 +27,7 @@ const WatchCategory = () => {
     const Quartz_Watches = gadgetProduct.filter(item => item.product_category === "Quartz_Watches")
     
     return (
-        <div>
+        <div className='max-w-7xl mx-auto'>
             <SectionTitle heading={"WATCH CATEGORY"} subHeading={"ITEMS"} />
             <div>
                 <Tabs className={"text-center "}>

@@ -43,14 +43,14 @@ const AllUser = () => {
     }
     const handleMakeAdmin = id => {
         axiosSecure.patch(`/users/admin/${id}`)
-        .then(res => {
-            console.log(res.data);
-            if(res.data.modifiedCount < 0){
-               
-                toast.success("Successfully deleted")
-            }
-            refetch();
-        })
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount < 0) {
+
+                    toast.success("Successfully deleted")
+                }
+                refetch();
+            })
     }
     return (
         <div className="overflow-x-auto md:px-10">
@@ -76,7 +76,7 @@ const AllUser = () => {
                             <button onClick={() => handleRemove(user._id)} className="mt-4 text-red-600 text-sm font-semibold  hover:underline">
                                 <MdDeleteOutline />
                             </button>
-                            <td>  { user?.role === "admin"  ? "Admin" : <button onClick={() => handleMakeAdmin(user._id)}><MdOutlineAdminPanelSettings /></button>}</td>
+                            <td>  {user?.role === "admin" ? "Admin" : <button onClick={() => handleMakeAdmin(user._id)}><MdOutlineAdminPanelSettings /></button>}</td>
                         </tr>)
                     }
 

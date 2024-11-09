@@ -20,8 +20,10 @@ import { FaHistory } from "react-icons/fa";
 import { FaMale } from "react-icons/fa";
 import { ImBooks } from "react-icons/im";
 import useCart from '../../Hooks/useCart';
+import useAdmin from '../../Hooks/useAdmin';
 const Dashboard = () => {
   const { user, logout } = useAuth();
+  const [isAdmin] = useAdmin();
   const [cart] = useCart();
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -63,7 +65,7 @@ const Dashboard = () => {
                   </IconButton>
                 </div>
                 <List>
-                  {user ? <>   <Link to={"/dashboard/adminHome"}>
+                  {isAdmin ? <>   <Link to={"/dashboard/adminHome"}>
                     <ListItem>
                       <ListItemPrefix>
                         <p className='text-xl'>  <MdAdminPanelSettings /></p>

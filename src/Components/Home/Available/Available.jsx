@@ -79,7 +79,7 @@ const Available = () => {
                     <br />
             </div>
        </Link>
-          <Link to={"/mobiles"}>
+          <Link to={"/mobile"}>
           <div className="card  md:w-80  shadow-2xl rounded-lg">
                 <figure>
                     <div>
