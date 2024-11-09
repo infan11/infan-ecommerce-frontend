@@ -62,7 +62,7 @@ const Login = () => {
   <div  className="text-center hidden md:block lg:text-left">
      <img className=" w-[700px]" src={image} alt="" />
     </div>
-  <div  className="  w-full max-w-sm shrink-0  border-2 border-orange-400 rounded-md shadow-2xl">
+  <div  className="  w-full max-w-sm shrink-0  border-2 border-green-400 rounded-md shadow-2xl">
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                        <p className="text-center font-bold text-orange-500 ">SIGNIN</p>
                        <br />
@@ -88,12 +88,13 @@ const Login = () => {
           <Checkbox  label="Remember Me" />
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary bg-orange-400 hover:bg-orange-400 text-white">SignUp</button>
+          <button className="btn btn-primary bg-orange-400 hover:bg-orange-400 text-white">SignIn</button>
         </div>
         <p className="text-green-500 text-center font-bold">All ready registered ?Go to <Link to={"/register"}> SignUp</Link> </p>
         <p className="text-center font-bold ">Or signIn in with</p>
-         <button onClick={handleGoogle} className=" bg-white p-3 px-7 text-black flex  rounded-full "><span className="text-xl"><FcGoogle /></span> <span className="text-[13px] font-bold text-center  ml-4 md:ml-11 ">Continue with Google</span></button>
+
       </form>
+      <button onClick={handleGoogle} className=" -mt-4 mb-4 max-w-7xl mx-auto bg-white p-3 px-7 text-black flex  rounded-full "><span className="text-xl"><FcGoogle /></span> <span className="text-[13px] font-bold text-center ml-3 ">Continue with Google</span></button>
     </div>
    
    

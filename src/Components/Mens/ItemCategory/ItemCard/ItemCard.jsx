@@ -20,11 +20,11 @@ const ItemCard = ({item}) => {
                       <h2 className="text-[12px] font-bold ">{name}</h2>
                       <div className="flex gap-7">
                       <p className=" md:text-[15px] font-bold" > Offer :  ${discountedPrice}</p>
-                      <p className="md:text-[15px] font-bold"> Price: <del>${price}</del></p>
+                      <p className="md:text-[15px] font-bold  text-gray-400"> Price: <del>${price}</del></p>
                       </div>
                       <div className="card-actions">
                         <Link to={`/details/${item._id}`}>
-                        <button className="btn rounded-full text-white bg-black">SELECT OPTION</button>
+                        <button className="btn  text-white bg-black">SELECT OPTION</button>
                         </Link>
                       </div>
                     </div>

@@ -1,125 +1,128 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
 import { Button } from "@material-tailwind/react";
-import { useForm } from "react-hook-form";
-import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import useAuth from "../../Hooks/useAuth";
 import useCart from "../../Hooks/useCart";
 
-const AccessoriesDetails = ({ onSelect }) => {
+const AccessoriesDetails = () => {
     const { id } = useParams();
-    const [item, setItem] = useState([]);
-    const [quantity, setQuantity] = useState(0)
+    const [item, setItem] = useState({});
+    const [quantity, setQuantity] = useState(1);  // Default quantity set to 1
+    const [existingItem, setExistingItem] = useState(false);
+
     const axiosSecure = useAxiosSecure();
-    // const {register , handleSubmit} = useForm()
     const navigate = useNavigate();
-    const { user } = useAuth(null)
+    const { user } = useAuth(null);
     const [, refetch] = useCart();
-    
 
     useEffect(() => {
+        // Fetch item details by ID
         axiosSecure.get(`/addItems/${id}`)
-            .then(res => {
-                setItem(res.data);
-            })
+            .then(res => setItem(res.data))
             .catch(error => console.error(error));
     }, [id, axiosSecure]);
 
-
-    const handleIncrment = () => {
-        if (quantity < 100) {
-            setQuantity(prevQuantity => prevQuantity + 1)
+    useEffect(() => {
+        // Check if item already exists in the cart
+        if (user && user.email && item.name) {
+            axiosSecure.get(`/cart?email=${user.email}`)
+                .then(res => {
+                    const itemInCart = res.data.some(cartEntry => cartEntry.name === item.name);
+                    setExistingItem(itemInCart);
+                })
+                .catch(error => console.error("Error checking cart:", error));
         }
-    }
+    }, [user, axiosSecure, item.name]);
 
-    const handleDecrment = () => {
-        if (quantity > 1) {
-            setQuantity(prevQuantity => prevQuantity - 1)
-        }
-    }
+    const handleIncrement = () => {
+        if (quantity < 100) setQuantity(prev => prev + 1);
+    };
 
-    const handleAddToCart = ()=> {
+    const handleDecrement = () => {
+        if (quantity > 1) setQuantity(prev => prev - 1);
+    };
 
-
-        if (user && user?.email) {
-            console.log(user.email);
+    const handleAddToCart = () => {
+        if (user && user.email) {
             const cartItem = {
                 name: item.name,
                 photo: item.photo,
                 discountedPrice: item.discountedPrice,
                 price: item.price,
-                quantity: quantity,
-                email : user?.email
+                quantity,
+                email: user.email
+            };
 
-
-            }
-            toast.promise(
-                axiosSecure.post('/cart', cartItem),
-                {
-                  loading: 'Loading...',
-                  success: `${item.name} Successfully  Add Item`,
-                  error: 'Could not save the user.'
-                }
-  
-              )
-              refetch();            
-             
-        }
-        else{
+            axiosSecure.post('/cart', cartItem)
+                .then(() => {
+                    toast.success(`${item.name} successfully added to cart.`);
+                    setExistingItem(true);
+                    refetch();
+                })
+                .catch(() => toast.error('Could not add the item to the cart.'));
+        } else {
             Swal.fire({
-                title: "You are not logged yet",
-                text: "You won't be able to revert this!",
+                title: "You are not logged in",
+                text: "Please log in to add items to your cart.",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, SignIn!"
-              }).then((result) => {
-                navigate('/login')
-              });
+                confirmButtonText: "Login Now",
+            }).then(result => {
+                if (result.isConfirmed) navigate('/login');
+            });
         }
+    };
 
-    }
     return (
         <div>
             <div className="max-w-7xl mx-auto px-5 md:px-24 min-h-screen">
                 <div className="mt-20 grid md:grid-cols-2 lg:flex-row-reverse">
                     <div className="text-center lg:text-right">
-                        <img className="w-[500px] h-[500px] rounded-lg" src={item.photo} alt="" />
+                        <img className="w-[500px] h-[500px] rounded-lg" src={item.photo} alt={item.name} />
                     </div>
 
                     <div className="bg-base-100 w-full">
                         <p className="mt-4 md:mt-0 text-3xl md:text-4xl text-gray-700 font-bold uppercase">{item.name}</p>
                         <div className="divider w-14"></div>
-                        <p className="font-bold text-xl  uppercase text-gray-600"> Product of {item.brand}</p>
-                        <div className="flex gap-8 mb-4">
+                        <p className="font-bold text-xl uppercase text-gray-600">Product of {item.brand}</p>
+                        <div className="flex gap-8 mb-4 mt-3">
                             <p className="font-bold">${item.discountedPrice}.00</p>
-                            <p className="font-bold"><del>${item.price}.00</del></p>
+                            <p className="font-bold text-gray-600"><del>${item.price}.00</del></p>
                         </div>
 
-     
-                        {/* Quantity selector */}
-                        <div className="flex items-center gap-2 mt-8">
-                            <Button className="px-3 py-1 bg-orange-400 rounded hover:bg-gray-300 disabled:opacity-50" onClick={handleDecrment}>-</Button>
-                            <input type="number" className="w-10 ml-4"
-                                name="quantity"
+                        {/* Quantity selector, shown only if item isn't in the cart */}
+                        {!existingItem && (
+                            <div className="flex items-center gap-2 mt-8">
+                                <Button className="px-3 py-1 bg-orange-400 rounded hover:bg-gray-300" onClick={handleDecrement}>-</Button>
+                                <input
+                                    type="number"
+                                    className="w-10 ml-4 font-bold"
+                                    value={quantity}
+                                    onChange={(e) => setQuantity(Math.max(1, Math.min(100, Number(e.target.value))))}
+                                    required
+                                />
+                                <Button onClick={handleIncrement} className="px-3 py-1 bg-orange-400 rounded hover:bg-gray-300" disabled={quantity >= 100}>+</Button>
+                            </div>
+                        )}
 
-                                value={quantity} onChange={(e) =>
-                                    setQuantity(Math.max(1, Math.min(100, Number(e.target.value))))
-                                } required />
-                            <Button onClick={handleIncrment} className="px-3 py-1 bg-orange-400 rounded hover:bg-gray-300 disabled:opacity-50" disabled={quantity >= 100}>+</Button>
-                        </div>
-                        <Button onClick={handleAddToCart} className="bg-gray-600 mt-8 ">ADD TO CART</Button>
+                        {/* Add to Cart / Check Your Cart button */}
+                        {existingItem ? (
+                            <Link to="/dashboard/myCart">
+                                <Button className="bg-gray-600 mt-8">Check Your Cart</Button>
+                            </Link>
+                        ) : (
+                            <Button onClick={handleAddToCart} className="bg-gray-600 mt-8">ADD TO CART</Button>
+                        )}
 
                         <div className="divider"></div>
-                        <p className="uppercase mt-4 font-bold text-gray-500 text-2xl" > description</p>
-                        <p className="mt-8 text-[12px] font-bold italic ">{item.description}</p>
+                        <p className="uppercase mt-4 font-bold text-gray-500 text-2xl">Description</p>
+                        <p className="mt-8 text-[12px] font-bold italic">{item.description}</p>
                     </div>
-
-
-
                 </div>
             </div>
         </div>

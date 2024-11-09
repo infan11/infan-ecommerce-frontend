@@ -93,7 +93,7 @@ const Register = () => {
     <div>
       <div style={{ backgroundImage: "url(https://i.ibb.co.com/p1SckNY/authentication.png)" }} className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse gap-20">
-          <div className="  w-full max-w-sm shrink-0  border-4 border-orange-400 rounded-md shadow-2xl">
+          <div className="  w-full max-w-sm shrink-0  border-4 border-green-400 rounded-md shadow-2xl">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <p className="text-center font-bold  text-orange-500">SIGNUP</p>
               <br />
@@ -121,8 +121,9 @@ const Register = () => {
               </div>
               <p className="text-green-500 text-center font-bold">All ready registered ?Go to <Link to={"/login"}> SignIn</Link> </p>
               <p className="text-center font-bold ">Or signUp in with</p>
-              <button onClick={handleGoogle} className=" bg-white p-3 px-7 text-black flex  rounded-full "><span className="text-xl"><FcGoogle /></span> <span className="text-[13px] font-bold text-center ml-3 md:ml-11 ">Continue with Google</span></button>
+             
             </form>
+            <button onClick={handleGoogle} className=" -mt-4 mb-4 max-w-7xl mx-auto bg-white p-3 px-7 text-black flex  rounded-full "><span className="text-xl"><FcGoogle /></span> <span className="text-[13px] font-bold text-center ml-3 ">Continue with Google</span></button>
           </div>
           <div className="text-center hidden md:block lg:text-left">
             <img className=" w-[700px]" src={image} alt="" />

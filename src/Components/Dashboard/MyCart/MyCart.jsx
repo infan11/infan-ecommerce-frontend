@@ -4,8 +4,11 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { MdDeleteOutline } from "react-icons/md";
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
+import useProduct from '../../Hooks/useProduct';
 const MyCart = () => {
     const [cart, refetch] = useCart();
+    const [mensProduct] = useProduct()
+    console.log("cart found",cart);
     const axiosSecure = useAxiosSecure();
 
     const subTotal = cart.reduce((total, item) => {
@@ -63,16 +66,23 @@ const MyCart = () => {
                                                 <img
                                                     src={item.photo}
                                                     alt={item.name}
+                                            
                                                     className="object-cover"
                                                 />
                                             </div>
                                         </div>
                                         <div className='mr-20 md:mr-0'>
                                             <p className="font-bold text-sm md:text-lg">{item.name}</p>
+                                               {
+                                                mensProduct ? <> <p className='font-bold text-gray-600'>  {item.size}</p> </> : <>
+                                                </>
+                                               }
+
                                             <p className="text-sm font-semibold text-gray-700">Price: ${item.discountedPrice}.00</p>
                                             <button onClick={() => handleRemove(item._id)} className="text-red-600 text-sm font-semibold mt-1 hover:underline">
                                                 <MdDeleteOutline />
                                             </button>
+                                            
                                         </div>
                                     </div>
                                 </td>
@@ -87,6 +97,7 @@ const MyCart = () => {
 
                                 <td>
                                     <p className='font-semibold'>${(item.discountedPrice * item.quantity)}.00</p>
+
                                 </td>
                             </tr>
                         ))}
