@@ -6,7 +6,7 @@ const Accessories = () => {
     return (
         <div>
           <AccessoriesBanner/>
-          <AccessoriesItem/>
+          <AccessoriesItaem/>
         </div>
     );
 };

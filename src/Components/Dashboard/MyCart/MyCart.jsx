@@ -5,6 +5,8 @@ import { MdDeleteOutline } from "react-icons/md";
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
 import useProduct from '../../Hooks/useProduct';
+import { Button } from '@material-tailwind/react';
+import { Link } from 'react-router-dom';
 const MyCart = () => {
     const [cart, refetch] = useCart();
     const [mensProduct] = useProduct()
@@ -123,6 +125,11 @@ const MyCart = () => {
                         <p className='text-center mr-4 '>Total</p>
                         <p className='text-center  ml-3 font-bold text-red-400'>${total}</p>
                     </div>
+                </div>
+                <div className='px-3 md:px-1'>
+             <Link to={"/dashboard/checkOut"}>
+             <button className='btn  w-full mt-4  btn-outline bg-orange-900 text-white'>Confirm Order</button>
+             </Link>
                 </div>
             </div>
         </div>

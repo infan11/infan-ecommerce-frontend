@@ -29,6 +29,8 @@ import Watch from "../Components/Watch/Watch/Watch";
 import ForgetPass from "../Components/ForgetPass/ForgetPass";
 import MyProfile from "../Components/MyProfile/MyProfile";
 import PrivateRoutes from "../Components/PrivateRoutes/PrivateRoutes";
+import CheckOut from "../Components/Dashboard/CheckOut/checkOut";
+import Payment from "../Components/Dashboard/Payment/Payment/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -140,6 +142,14 @@ export const router = createBrowserRouter([
             {
                 path: "/dashboard/paymentHistory",
                  element : <PaymentHistory/>
+            },
+            {
+                path: "/dashboard/checkOut",
+                 element :  <CheckOut/>
+            },
+            {
+                path: "/dashboard/payment",
+                 element :  <Payment/>
             },
         ]
     },
