@@ -8,23 +8,23 @@ const ItemCard = ({item}) => {
     
     return (
         <div>
-             <div  className="card  md:w-80  shadow-2xl rounded-lg">
+             <div  className=" w-44   md:w-80  ">
                     <figure className="">
                       <img
                         src={photo}
                         alt="unavilable " 
-                        className="rounded-xl w-40 h-40 md:w-64 md:h-64" />
+                        className="w-full mx-auto  h-32  md:h-64" />
                     </figure>
                    
-                    <div className="card-body text-center items-center ">
-                      <h2 className="text-[12px] font-bold ">{name}</h2>
-                      <div className="flex gap-7">
-                      <p className=" md:text-[15px] font-bold" > Offer :  ${discountedPrice}</p>
-                      <p className="md:text-[15px] font-bold  text-gray-400"> Price: <del>${price}</del></p>
+                    <div className="text-center items-center ">
+                      <h2 className="text-[15px] font-bold ">{name}</h2>
+                      <div className="flex gap-2 justify-center items-center mt-2">
+                      <p className="text-[10px] md:text-[10px] font-bold" >${discountedPrice}</p>
+                      <p className="text-[10px] md:text-[10px] font-bold  text-gray-400"><del>${price}</del></p>
                       </div>
-                      <div className="card-actions">
+                      <div className="justify-center item-center">
                         <Link to={`/details/${item._id}`}>
-                        <button className="btn  text-white bg-black">SELECT OPTION</button>
+                        <button className="btn text-[9px] md:text-[12px] mt-2  w-full text-white bg-black">SELECT OPTION</button>
                         </Link>
                       </div>
                     </div>

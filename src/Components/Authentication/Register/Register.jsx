@@ -8,6 +8,7 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 // import {promise} from 'react-hot-toast/dist/index.css'
 const Register = () => {
   const { createUser, user, googleUserProvider, updateUserProfile } = useContext(AuthContext);
@@ -91,6 +92,11 @@ const Register = () => {
 
   return (
     <div>
+       <Helmet>
+                <meta charSet="utf-8" />
+                <title>INFAN WEB - SIGNUP</title>
+           
+            </Helmet>
       <div style={{ backgroundImage: "url(https://i.ibb.co.com/p1SckNY/authentication.png)" }} className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse gap-20">
           <div className="  w-full max-w-sm shrink-0  border-4 border-green-400 rounded-md shadow-2xl">

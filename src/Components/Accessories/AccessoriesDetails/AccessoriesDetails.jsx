@@ -86,13 +86,13 @@ const AccessoriesDetails = () => {
                         <img className="w-[500px] h-[500px] rounded-lg" src={item.photo} alt={item.name} />
                     </div>
 
-                    <div className="bg-base-100 w-full">
-                        <p className="mt-4 md:mt-0 text-3xl md:text-4xl text-gray-700 font-bold uppercase">{item.name}</p>
+                    <div className=" w-full">
+                        <p className="mt-4 md:mt-0 text-3xl md:text-4xl  font-bold uppercase">{item.name}</p>
                         <div className="divider w-14"></div>
-                        <p className="font-bold text-xl uppercase text-gray-600">Product of {item.brand}</p>
+                        <p className="font-bold text-xl uppercase ">Product of {item.brand}</p>
                         <div className="flex gap-8 mb-4 mt-3">
                             <p className="font-bold">${item.discountedPrice}.00</p>
-                            <p className="font-bold text-gray-600"><del>${item.price}.00</del></p>
+                            <p className="font-bold "><del>${item.price}.00</del></p>
                         </div>
 
                         {/* Quantity selector, shown only if item isn't in the cart */}
@@ -101,7 +101,7 @@ const AccessoriesDetails = () => {
                                 <Button className="px-3 py-1 bg-orange-400 rounded hover:bg-gray-300" onClick={handleDecrement}>-</Button>
                                 <input
                                     type="number"
-                                    className="w-10 ml-4 font-bold"
+                                    className="w-10 ml-4  bg-gray-900 text-white text-center font-bold"
                                     value={quantity}
                                     onChange={(e) => setQuantity(Math.max(1, Math.min(100, Number(e.target.value))))}
                                     required
@@ -120,7 +120,7 @@ const AccessoriesDetails = () => {
                         )}
 
                         <div className="divider"></div>
-                        <p className="uppercase mt-4 font-bold text-gray-500 text-2xl">Description</p>
+                        <p className="uppercase mt-4 font-bold  text-2xl">Description</p>
                         <p className="mt-8 text-[12px] font-bold italic">{item.description}</p>
                     </div>
                 </div>

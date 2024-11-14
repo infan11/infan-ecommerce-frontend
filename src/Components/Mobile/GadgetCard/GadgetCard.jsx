@@ -26,7 +26,7 @@ const GadgetCard = ({item}) => {
                       </div>
                       <div className="card-actions">
                         <Link to={`/gadgetDetails/${item._id}`}>
-                        <button className="btn rounded-full text-white bg-black">SELECT OPTION</button>
+                        <button className="btn text-[9px] md:text-[12px] mt-2  w-full text-white bg-black">SELECT OPTION</button>
                         </Link>
                       </div>
                     </div>

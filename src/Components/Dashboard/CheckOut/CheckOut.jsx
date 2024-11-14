@@ -19,6 +19,7 @@ import {
     ListItemPrefix,
     Typography,
 } from "@material-tailwind/react";
+import { Helmet } from 'react-helmet';
 const CheckOut = () => {
     const [cart, refetch] = useCart();
     const navigate = useNavigate()
@@ -211,6 +212,11 @@ const CheckOut = () => {
     };
     return (
         <div >
+              <Helmet>
+                <meta charSet="utf-8" />
+                <title>DASHOBARD | CHECKOUT</title>
+           
+            </Helmet>
             <form onSubmit={handleSubmit(onSubmit)} >
                 <div>
                     <div style={{ backgroundImage: "url()" }} className="  min-h-screen  hero">
@@ -220,11 +226,11 @@ const CheckOut = () => {
 
                                     <br />
                                     <div className="form-control">
-                                        <Input type="text" size="lg" label="Name" name="name" {...register("name", { required: true })} className="" />
+                                        <Input type="text" size="lg" color='green' label="Name" name="name" {...register("name", { required: true })} className="text-green-400" />
                                         {errors.name && <span className="text-red-500 font-bold italic">This field is required</span>}
                                         <br />
                                         <div className='md:flex gap-2'>
-                                            <Input type="email" size="lg" label="Email" name="email" {...register("email", { required: true })} className="" />
+                                            <Input type="email" color='green' size="lg" label="Email" name="email" {...register("email", { required: true })} className="text-green-400" />
                                             {errors.email && <span className="text-red-500 font-bold italic">This field is required</span>}
 
                                             <br />
@@ -233,6 +239,7 @@ const CheckOut = () => {
                                                 label="Contact Number"
                                                 {...register("contactNumber", { required: true })}
                                                 placeholder="e.g., +1 123-456-7890"
+                                                color='green'   
                                                 pattern="^\+\d{1,3}\s\d{1,4}-\d{1,4}-\d{4}$"
                                                 className="appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                                                 icon={
@@ -240,7 +247,7 @@ const CheckOut = () => {
                                                         xmlns="http://www.w3.org/2000/svg"
                                                         viewBox="0 0 24 24"
                                                         fill="currentColor"
-                                                        className="h-4 w-4 text-blue-gray-600"
+                                                        className="h-4 w-4 text-green-400"
                                                     >
                                                         <path
                                                             fill-rule="evenodd"
@@ -254,7 +261,7 @@ const CheckOut = () => {
                                             {errors.contactNumber && <span className="text-red-500 font-bold italic">This field is required</span>}
                                         </div>
                                         <div className="md:flex gap-3 mt-3">
-                                            <Select
+                                            <Select 
                                                 placeholder="Select Country"
                                                 options={[
                                                     { value: "Afghanistan", label: "Afghanistan" },
@@ -288,7 +295,7 @@ const CheckOut = () => {
                                                 value={localCountry}
                                                 onChange={handleCategoryChange}
                                                 isClearable
-                                                className='w-full'
+                                                className='w-full text-gray-700'
                                             />
                                             <br />
                                             <Select
@@ -298,7 +305,7 @@ const CheckOut = () => {
                                                 onChange={handleProductCategoryChange}
                                                 isDisabled={loading || stateOptions.length === 0}
                                                 isClearable
-                                                className='w-full'
+                                                className='w-full text-gray-800' 
                                             />
                                         </div>
                                         <br />
@@ -311,6 +318,7 @@ const CheckOut = () => {
                                                 onChange={handleDistrictChange}
                                                 isDisabled={!selectedStateCategory}
                                                 isClearable
+                                                className='text-gray-800'
                                             />
 
 
@@ -320,13 +328,13 @@ const CheckOut = () => {
 
                                     </div>
                                     <br />
-                                    <Input type="text" size="lg" label="Upzila Name" name="upzilaName" {...register("upzilaName", { required: true })} className="mt-3" />
+                                    <Input color='green' type="text" size="lg" label="Upzila Name" name="upzilaName" {...register("upzilaName", { required: true })} className=" text-green-400" />
                                     {errors.upzilaName && <span className="text-red-500 font-bold italic">This field is required</span>}
                                     <br />
 
 
                                     <div className="w-full">
-                                        <Textarea label="Full Address" name='address' {...register("address", { required: true })} />
+                                        <Textarea color='green' label="Full Address" className='text-green-400' name='address' {...register("address", { required: true })} />
                                         {errors.address && <span className="text-red-500 font-bold italic">This field is required</span>}
                                     </div>
 

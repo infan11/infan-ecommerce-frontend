@@ -26,11 +26,8 @@ const MyProfile = () => {
     const form = e.target;
     const name = form.name.value;
     const photo = form.photo.files[0];
-
-    // Upload the image and get the URL
     const imageData = await imageUpload(photo);
-    const imageUrl = imageData?.url || ''; // Ensure imageUrl is a string
-
+    const imageUrl = imageData?.data?.display_url || ""
     console.log("Uploaded Image URL:", imageUrl);
 
     // Update the user profile with the name and photoURL
@@ -38,6 +35,7 @@ const MyProfile = () => {
   };
 
   const handleUpdateUser = (name, photo) => {
+    console.log( "image", photo);
     const profile = {
       displayName: name,
       photoURL: photo, // Ensure that photo is a string URL here
@@ -69,7 +67,8 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="w-10/12 border border-cyan-300 rounded-lg mx-auto grid grid-cols-1 gap-20 lg:gap-2 lg:grid-cols-2 my-10 p-10">
+ <div className="min-h-screen">
+     <div className="w-10/12 border  border-cyan-300 rounded-lg mx-auto grid grid-cols-1 gap-20 lg:gap-2 lg:grid-cols-2 my-10 p-10">
       <div className="w-full">
         {/* Show the preview image or the current profile image */}
         <img
@@ -87,7 +86,7 @@ const MyProfile = () => {
               type="email"
               name="floating_email"
               id="floating_email"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-0 w-full text-sm  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               defaultValue={user?.email}
               readOnly
             />
@@ -116,7 +115,7 @@ const MyProfile = () => {
               type="text"
               name="name"
               id="floating_first_name"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               defaultValue={user?.displayName}
               required
             />
@@ -137,6 +136,7 @@ const MyProfile = () => {
         </form>
       </div>
     </div>
+ </div>
   );
 };
 

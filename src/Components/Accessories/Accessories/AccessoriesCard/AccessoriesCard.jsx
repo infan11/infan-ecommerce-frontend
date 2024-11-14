@@ -21,7 +21,7 @@ const AccessoriesCard = ({item}) => {
                     <div className="card-body text-center items-center ">
                       <h2 className="text-[12px] font-bold ">{name}</h2>
                       <div className="flex gap-7">
-                      <p className=" md:text-[15px] font-bold" > Offer :  ${discountedPrice}</p>
+                      <p className=" md:text-[15px] font-bold" >  :  ${discountedPrice}</p>
                       <p className="md:text-[15px] font-bold"> Price: <del>${price}</del></p>
                       </div>
                       <div className="card-actions">

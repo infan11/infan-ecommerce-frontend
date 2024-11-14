@@ -91,20 +91,20 @@ const BookDetails = () => {
                         <img className="w-[300px] mx-auto h-[400px] rounded-lg" src={item.photo} alt="" />
                     </div>
 
-                    <div className="bg-base-100 w-full px-3 md:px-1">
-                        <p className="mt-4 md:mt-0 text-3xl md:text-4xl text-gray-700 font-bold uppercase">{item.name}</p>
-                        <p className="font-bold mt-3 text-gray-800 italic">Writer: {item.writerName}</p>
-                        <p className="font-bold mt-3 text-gray-800 italic">Publication: {item.productPublication}</p>
+                    <div className=" w-full px-3 md:px-1">
+                        <p className="mt-4 md:mt-0 text-3xl md:text-4xl  font-bold uppercase">{item.name}</p>
+                        <p className="font-bold mt-3  italic">Writer: {item.writerName}</p>
+                        <p className="font-bold mt-3  italic">Publication: {item.productPublication}</p>
                         <div className="flex gap-7">
-                            <p className="font-extrabold text-gray-700 mt-3">Cover: {item.cover}</p>
-                            <p className="font-extrabold text-gray-700 mt-3">Page: {item.pageNumber}</p>
+                            <p className="font-extrabold  mt-3">Cover: {item.cover}</p>
+                            <p className="font-extrabold  mt-3">Page: {item.pageNumber}</p>
                         </div>
                         {existingItem ? (
-                            <p className="font-bold text-gray-500">Your Selected Quantity: {quantity}</p>
+                            <p className="font-bold ">Your Selected Quantity: {quantity}</p>
                         ) : (
                             <div className="flex items-center gap-2 mt-8">
                                 <Button className="px-3 py-1 bg-orange-400 rounded hover:bg-gray-300 disabled:opacity-50" onClick={handleDecrement}>-</Button>
-                                <input type="number" className="w-10 ml-4" name="quantity"
+                                <input type="number" className="w-10 ml-4 bg-gray-900 text-center text-white" name="quantity"
                                     value={quantity}
                                     onChange={(e) => setQuantity(Math.max(1, Math.min(100, Number(e.target.value))))}
                                     required
@@ -127,7 +127,7 @@ const BookDetails = () => {
                         )}
 
                         <div className="divider"></div>
-                        <p className="uppercase mt-4 font-bold text-gray-500 text-2xl">Description</p>
+                        <p className="uppercase mt-4 font-bold  text-2xl">Description</p>
                         <p className="mt-8 text-[12px] font-bold italic">{item.description}</p>
                     </div>
                 </div>

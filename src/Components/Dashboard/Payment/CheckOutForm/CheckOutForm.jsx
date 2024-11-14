@@ -94,7 +94,7 @@ const CheckOutForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md">
+      <form onSubmit={handleSubmit} className="max-w-7xl justify-center items-baseline mt-20 mx-auto p-6 bg-white rounded-lg shadow-md">
         <div className="mb-4">
           <label className="block text-gray-700 mb-2">Card Number</label>
           <CardElement

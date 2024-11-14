@@ -3,7 +3,7 @@ import useAxiosSecure from './useAxiosSecure';
 
 const useGadget = () => {
     const axiosSecure = useAxiosSecure();
-    const { data: gadgetProduct = [] } = useQuery({
+    const { data: gadgetProduct = []  , refetch} = useQuery({
         
         queryKey: ["gadgetProduct"],
         queryFn: async () => {
@@ -12,7 +12,7 @@ const useGadget = () => {
             return res.data
         }
     })
-    return [gadgetProduct]
+    return [gadgetProduct , refetch]
 };
 
 export default useGadget;

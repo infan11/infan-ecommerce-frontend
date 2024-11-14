@@ -6,6 +6,8 @@ import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import useCart from "../../Hooks/useCart";
+import useBooksProduct from "../../Hooks/useBooksProduct";
+import useGadget from "../../Hooks/useGadget";
 
 const Details = ({ onSelect }) => {
     const { id } = useParams();
@@ -13,7 +15,8 @@ const Details = ({ onSelect }) => {
     const [selectSize, setSelectSize] = useState(null);
     const [quantity, setQuantity] = useState(1); // Set default quantity to 1
     const [existingItem, setExistingItem] = useState(false); // Track if item is in the cart
-
+    const [booksProduct] = useBooksProduct();
+    const [gadgetProduct] = useGadget();
     const axiosSecure = useAxiosSecure();
     const navigate = useNavigate();
     const { user } = useAuth(null);
@@ -100,7 +103,7 @@ const Details = ({ onSelect }) => {
                         <img className="w-[500px] h-[500px] rounded-lg" src={item.photo} alt="" />
                     </div>
 
-                    <div className="bg-base-100 w-full">
+                    <div className=" w-full">
                         <p className="mt-4 md:mt-0 text-3xl md:text-4xl text-gray-700 font-bold uppercase">{item.name}</p>
                         <div className="divider w-14"></div>
                         <div className="flex gap-8 mb-4">
@@ -108,28 +111,33 @@ const Details = ({ onSelect }) => {
                             <p className="font-bold"><del>${item.price}.00</del></p>
                         </div>
 
-                        {existingItem ? (
-                            <p className="font-bold text-gray-500">Selected Size: {selectSize}</p>
-                        ) : (
-                            <div className="flex gap-5 mt-8">
-                                {sizes.map(size => (
-                                    <Button
-                                        key={size}
-                                        onClick={(event) => handleSize(size, event)}
-                                        className={`px-4 py-2 border rounded ${selectSize === size ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-700'} hover:bg-orange-400 hover:text-white transition shadow-md`}
-                                    >
-                                        {size}
-                                    </Button>
-                                ))}
-                            </div>
+                        {(booksProduct || gadgetProduct) && (
+                            existingItem ? (
+                                <p className="font-bold text-gray-500">Selected Size: {selectSize}</p>
+                            ) : (
+                                <div className="flex gap-5 mt-8">
+                                    {sizes.map(size => (
+                                        <Button
+                                            key={size}
+                                            onClick={(event) => handleSize(size, event)}
+                                            className={`px-4 py-2 border rounded 
+                                ${selectSize === size
+                                                    ? 'bg-black text-white'
+                                                    : 'bg-white text-black'} 
+                                hover:bg-orange-400 hover:text-white transition shadow-md`}
+                                        >
+                                            {size}
+                                        </Button>
+                                    ))}
+                                </div>
+                            )
                         )}
-
                         {existingItem ? (
                             <p className="font-bold text-gray-500">Selected Quantity: {quantity}</p>
                         ) : (
                             <div className="flex items-center gap-2 mt-8">
                                 <Button className="px-3 py-1 bg-orange-400 rounded hover:bg-gray-300 disabled:opacity-50" onClick={handleDecrement}>-</Button>
-                                <input type="number" className="w-10 ml-4"
+                                <input type="number" className="w-10 ml-4 text-center text-white bg-gray-900"
                                     value={quantity}
                                     onChange={(e) => setQuantity(Math.max(1, Math.min(100, Number(e.target.value))))}
                                     required

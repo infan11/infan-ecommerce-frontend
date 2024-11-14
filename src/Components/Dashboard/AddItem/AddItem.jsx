@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { imageUpload } from "../../Hooks/imageHooks";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const AddItem = () => {
     const { register, handleSubmit, setValue, getValues } = useForm();
@@ -96,6 +97,11 @@ const AddItem = () => {
 
     return (
         <div className="max-w-7xl mx-auto mb-10 md:px-32">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>DASHBOARD | ADD MENS ITEM</title>
+           
+            </Helmet>
             <SectionTitle heading={"Your Favorite"} subHeading={"ADD MENS ITEMS"} />
             <div className="w-full rounded-md shadow-2xl">
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">

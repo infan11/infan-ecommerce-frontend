@@ -31,6 +31,7 @@ import MyProfile from "../Components/MyProfile/MyProfile";
 import PrivateRoutes from "../Components/PrivateRoutes/PrivateRoutes";
 import CheckOut from "../Components/Dashboard/CheckOut/checkOut";
 import Payment from "../Components/Dashboard/Payment/Payment/Payment";
+import ManageItem from "../Components/Dashboard/ManageItems/ManageItem";
 
 export const router = createBrowserRouter([
     {
@@ -134,6 +135,10 @@ export const router = createBrowserRouter([
             {
                 path: "/dashboard/allUser",
                  element : <AllUser/>
+            },
+            {
+                path: "/dashboard/manageItems",
+                 element :<ManageItem/>
             },
             {
                 path: "/dashboard/myCart",

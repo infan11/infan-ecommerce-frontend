@@ -12,6 +12,7 @@ import { CiMobile3 } from "react-icons/ci";
 import { LuLaptop2 } from "react-icons/lu";
 import { TbPerfume } from "react-icons/tb";
 import { BsWatch } from "react-icons/bs";
+import DarkMode from "../Home/DarkMode";
 import {
   Avatar,
   Menu,
@@ -49,6 +50,7 @@ const Navbar = () => {
       label: "Edit Profile",
       icon: Cog6ToothIcon,
     },
+    
     {
       label: "Dashboard",
       icon: InboxArrowDownIcon,
@@ -172,13 +174,13 @@ const Navbar = () => {
   return (
     <div>
       {/* First Navbar */}
-      <div className="navbar bg-base-100 px-10 ">
+      <div className="navbar px-10 ">
         <div className="navbar-start">
           <p className="mt-1"> <span className="md:text-2xl  font-extrabold font-[Roboto Mono]"> INFAN   </span><span className="md:text-2xl  font-extrabold  font-[Roboto Mono]"> WEB </span> <br /> </p>
 
         </div>
         <div className="navbar-center">
-          <img className="mix-blend-darken w-16" src={logo} alt="" />
+          <img className=" bg-green-500 rounded-full w-16" src={logo} alt="" />
         </div>
         <div className="navbar-end">
 
@@ -204,7 +206,7 @@ const Navbar = () => {
             withBorder={true}
             color="blue-gray"
             className=" p-0.5"
-            src={"https://docs.material-tailwind.com/img/face-2.jpg"}
+            src={user?.photoURL}
           />
         </Button>
       </MenuHandler>
@@ -377,7 +379,7 @@ const Navbar = () => {
                 <Link to={"/perfume"}>
                   <ListItem>
                     <ListItemPrefix>
-                      <p className="font-bold text-xl" >  <CiMobile3 /></p>
+                      <p className="font-bold text-xl" >  <TbPerfume /></p>
                     </ListItemPrefix>
                     <NavLink
 
@@ -392,7 +394,7 @@ const Navbar = () => {
                 <Link to={"/watch"}>
                   <ListItem>
                     <ListItemPrefix>
-                      <p className="font-bold text-xl" > <TbPerfume /></p>
+                      <p className="font-bold text-xl" > <BsWatch /></p>
                     </ListItemPrefix>
                     <NavLink
 
@@ -407,7 +409,7 @@ const Navbar = () => {
                 <Link to={"/books"}>
                   <ListItem>
                     <ListItemPrefix>
-                      <p className="font-bold text-xl" ><BsWatch /></p>
+                      <p className="font-bold text-xl" ><ImBooks /></p>
                     </ListItemPrefix>
                     <NavLink
                       to="/mens"
@@ -419,22 +421,8 @@ const Navbar = () => {
                     </NavLink>
                   </ListItem>
                 </Link>
-                <Link>
-                  <ListItem>
-                    <ListItemPrefix>
-                      <p className="font-bold text-xl" >  <IoManOutline /></p>
-                    </ListItemPrefix>
-                    <NavLink
-                      to="/mens"
-                      className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? " font-bold rounded" : " font-bold text-[15px]  font-[Roboto]"
-                      }
-                    >
-                      MENS
-                    </NavLink>
-                  </ListItem>
-                </Link>
-                <Link to={"dashboard"}>
+              
+                <Link to={"/dashboard"}>
                   <ListItem>
                     <ListItemPrefix>
                     <a className=" text-5xl">  <svg
@@ -465,6 +453,9 @@ const Navbar = () => {
 
 
               </List>
+            <div className="ml-5">
+            <DarkMode/>
+            </div>
               {user ? <>
                 <div className="flex" >
                   <Button onClick={handleLogout} className="mt-3 ml-5" size="sm">  LOGOUT   </Button>

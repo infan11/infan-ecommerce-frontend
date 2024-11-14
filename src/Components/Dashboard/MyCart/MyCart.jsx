@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import useProduct from '../../Hooks/useProduct';
 import { Button } from '@material-tailwind/react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 const MyCart = () => {
     const [cart, refetch] = useCart();
     const [mensProduct] = useProduct()
@@ -47,7 +48,12 @@ const MyCart = () => {
         });
     }
     return (
-        <div className='max-w-7xl mx-auto mt-4 md:px-10'>
+        <div className='min-h-screen max-w-7xl mx-auto mt-4 md:px-10'>
+              <Helmet>
+                <meta charSet="utf-8" />
+                <title>DASHOBARD | MY CART</title>
+           
+            </Helmet>
             <div className="mb-11">
                 <table className="table w-full">
                     <thead className='bg-orange-900 text-white '>
@@ -76,11 +82,11 @@ const MyCart = () => {
                                         <div className='mr-20 md:mr-0'>
                                             <p className="font-bold text-sm md:text-lg">{item.name}</p>
                                                {
-                                                mensProduct ? <> <p className='font-bold text-gray-600'>  {item.size}</p> </> : <>
+                                                mensProduct ? <> <p className='font-bold '>  {item.size}</p> </> : <>
                                                 </>
                                                }
 
-                                            <p className="text-sm font-semibold text-gray-700">Price: ${item.discountedPrice}.00</p>
+                                            <p className="text-sm font-semibold ">Price: ${item.discountedPrice}.00</p>
                                             <button onClick={() => handleRemove(item._id)} className="text-red-600 text-sm font-semibold mt-1 hover:underline">
                                                 <MdDeleteOutline />
                                             </button>

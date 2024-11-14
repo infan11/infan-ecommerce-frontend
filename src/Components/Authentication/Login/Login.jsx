@@ -7,6 +7,7 @@ import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { register, handleSubmit, setError,formState: { errors ,} } = useForm();
@@ -56,6 +57,11 @@ const Login = () => {
   }
     return (
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>INFAN WEB - SIGNIN</title>
+           
+            </Helmet>
             <div>
             <div style={{backgroundImage : "url(https://i.ibb.co.com/p1SckNY/authentication.png)"}} className="hero bg-base-200 min-h-screen">
   <div  className="hero-content flex-col lg:flex-row-reverse gap-20">

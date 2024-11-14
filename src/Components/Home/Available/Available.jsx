@@ -28,7 +28,7 @@ const Available = () => {
                  
                 </div>
                 <div className="card-actions justify-center ">
-                        <button className="p-1 text-black outline w-28 rounded-full">Show</button>
+                        <button className="p-1  outline w-28 rounded-full">Show</button>
                     </div>
                     <br />
             </div>
@@ -51,7 +51,7 @@ const Available = () => {
                  
                 </div>
                 <div className="card-actions justify-center ">
-                        <button className="p-1 text-black outline w-28 rounded-full">Show</button>
+                        <button className="p-1  outline w-28 rounded-full">Show</button>
                     </div>
                     <br />
             </div>
@@ -74,7 +74,7 @@ const Available = () => {
                  
                 </div>
                 <div className="card-actions justify-center ">
-                        <button className="p-1 text-black outline w-28 rounded-full">Show</button>
+                        <button className="p-1  outline w-28 rounded-full">Show</button>
                     </div>
                     <br />
             </div>
@@ -97,7 +97,7 @@ const Available = () => {
                  
                 </div>
                 <div className="card-actions justify-center ">
-                        <button className="p-1 text-black outline w-28 rounded-full">Show</button>
+                        <button className="p-1  outline w-28 rounded-full">Show</button>
                     </div>
                     <br />
             </div>
@@ -120,7 +120,7 @@ const Available = () => {
                  
                 </div>
                 <div className="card-actions justify-center ">
-                        <button className="p-1 text-black outline w-28 rounded-full">Show</button>
+                        <button className="p-1  outline w-28 rounded-full">Show</button>
                     </div>
                     <br />
             </div>
@@ -143,7 +143,7 @@ const Available = () => {
                  
                 </div>
                 <div className="card-actions justify-center ">
-                        <button className="p-1 text-black outline w-28 rounded-full">Show</button>
+                        <button className="p-1  outline w-28 rounded-full">Show</button>
                     </div>
                     <br />
             </div>

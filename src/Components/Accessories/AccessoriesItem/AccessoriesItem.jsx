@@ -30,7 +30,7 @@ const AccessoriesItem = () => {
   const Camera_Accessories  = gadgetProduct.filter(item => item.product_category  === "Camera_Accessories") 
   const Gaming_Controllers  = gadgetProduct.filter(item => item.product_category  === "Gaming_Controllers") 
     return (
-        <div>
+        <div className='md:px-10'>
         <SectionTitle heading={"Mens Category"} subHeading={"ITEMS"}/>
         <div>
         <Tabs className={"text-center "}>

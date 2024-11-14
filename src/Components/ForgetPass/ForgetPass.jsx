@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { useRef } from "react";
 import { app } from "../Firebase/firebase.config";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 const auth = getAuth(app);
@@ -52,6 +53,11 @@ const navigate = useNavigate();
     }
     return (
         <div className="bg-white min-h-screen">
+             <Helmet>
+                <meta charSet="utf-8" />
+                <title>INFAN WEB - FORGET PASSWORD</title>
+           
+            </Helmet>
             <form onClick={handleForgetPassword} className="">
 <div className="max-w-7xl mx-auto px-6 pt-24">
     <p className="text-5xl  font-extrabold text-black">Reset Your Password? Now</p>

@@ -7,6 +7,7 @@ import { imageUpload } from "../../Hooks/imageHooks";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const AddAccessories = () => {
     const { register, handleSubmit, setValue } = useForm();
@@ -221,6 +222,11 @@ const AddAccessories = () => {
 
     return (
         <div className="max-w-7xl mx-auto mb-10 md:px-32">
+              <Helmet>
+                <meta charSet="utf-8" />
+                <title>DASHOBARD | GADGET ITEM</title>
+           
+            </Helmet>
             <SectionTitle heading={"Your Favorite"} subHeading={"ADD ACCESORIES ITEMS"} />
             <div className="w-full rounded-md shadow-2xl">
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">

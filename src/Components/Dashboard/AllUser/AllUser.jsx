@@ -5,6 +5,7 @@ import { MdDeleteOutline, MdOutlineAdminPanelSettings } from 'react-icons/md';
 
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 
 const AllUser = () => {
@@ -54,6 +55,11 @@ const AllUser = () => {
     }
     return (
         <div className="overflow-x-auto md:px-10">
+              <Helmet>
+                <meta charSet="utf-8" />
+                <title>DASHOBARD | ALL USERS</title>
+           
+            </Helmet>
             <table className="table">
                 {/* head */}
                 <thead>
