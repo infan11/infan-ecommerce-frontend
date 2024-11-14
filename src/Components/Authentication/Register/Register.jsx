@@ -126,7 +126,7 @@ const Register = () => {
                 <button className="btn btn-primary bg-orange-400 hover:bg-orange-400 text-white">SignUp</button>
               </div>
               <p className="text-green-500 text-center font-bold">All ready registered ?Go to <Link to={"/login"}> SignIn</Link> </p>
-              <p className="text-center font-bold ">Or signUp in with</p>
+              <p className="text-center font-bold text-green-400 ">Or signUp in with</p>
              
             </form>
             <button onClick={handleGoogle} className=" -mt-4 mb-4 max-w-7xl mx-auto bg-white p-3 px-7 text-black flex  rounded-full "><span className="text-xl"><FcGoogle /></span> <span className="text-[13px] font-bold text-center ml-3 ">Continue with Google</span></button>

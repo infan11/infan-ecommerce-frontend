@@ -84,17 +84,16 @@ const CheckOutForm = () => {
       if (res.data?.paymentResult?.insertedId) {
         toast.success("Payment Successful! Continue Shopping");
 
-        // Send email notification via EmailJS
-      // Send email notification via EmailJS
+  
 const emailData = {
-  user_email: user?.email || "default@example.com", // Default to your email if user email is not available
+  user_email: user?.email || "default@example.com", 
   user_name: user?.displayName || "User",
   transaction_id: paymentIntent.id,
   total_amount: totalPrice.toFixed(2),
 };
 console.log("Email data:", emailData);
 
-emailjs.send('service_uu13qt9', 'template_pew7w0b', emailData, 'LD3EefzuvWY-avuiH')
+emailjs.send(import.meta.env.VITE_SERVICE_KEY_EMAILJS, import.meta.env.VITE_TEMPLATE_KEY_EMAILJS, emailData, import.meta.env.VITE_API_KEY_EMAILJS)
   .then(() => {
     toast.success("Confirmation email sent.");
   })
