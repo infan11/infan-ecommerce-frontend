@@ -1,8 +1,11 @@
+import useCheckout from "../../Hooks/useCheckout";
 
 const AdminHome = () => {
+    const [checkOut] = useCheckout();
+
     return (
         <div>
-            this is admin home
+        <p>    this is admin homfefee{checkOut?.CheckOutEmail}</p>
         </div>
     );
 };

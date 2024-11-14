@@ -20,6 +20,7 @@ import {
     Typography,
 } from "@material-tailwind/react";
 import { Helmet } from 'react-helmet';
+import LengthItem from './LengthItem';
 const CheckOut = () => {
     const [cart, refetch] = useCart();
     const navigate = useNavigate()
@@ -162,7 +163,7 @@ const CheckOut = () => {
             category: localCountry?.value,
             state_category: data.state_category,
             district: data.district,
-            email: data.email,
+            CheckOutEmail: data.email,
             address: data.address,
             contactNumber: parseFloat(data.contactNumber)
 
@@ -460,6 +461,7 @@ const CheckOut = () => {
                     </div>
                 </div>
             </form>
+         
         </div>
     );
 };

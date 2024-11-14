@@ -7,9 +7,10 @@ const useCheckout = () => {
     const axiosSecure = useAxiosSecure()
     const {user} = useAuth();
     const {data : checkOut = [] , refetch} = useQuery({
-        queryKey : ["checkOut" , user?.email],
+        queryKey : ["checkOut"],
         queryFn : async () => {
             const res = await axiosSecure.get(`/checkOut?email=${user?.email}`)
+            console.log("fh" , checkOut.length);
             console.log("found data checkout" , res.data);
             return  res.data
         } 

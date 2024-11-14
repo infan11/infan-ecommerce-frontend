@@ -1,16 +1,19 @@
-// frontend
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useState, useEffect, useMemo } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import emailjs from '@emailjs/browser';  // Import EmailJS
 import useAuth from '../../../Hooks/useAuth';
 import useCart from '../../../Hooks/useCart';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import useCheckout from '../../../Hooks/useCheckout';
 
 const CheckOutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useAuth();
+  console.log("user",user?.email);
+  const [checkOut] = useCheckout(); // atr modde email ase : email
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -18,7 +21,6 @@ const CheckOutForm = () => {
   const [transactionId, setTransactionId] = useState("");
   const [cart, refetch] = useCart();
 
-  // Calculate total price only when cart changes
   const totalPrice = useMemo(() => cart.reduce((total, item) => total + item.price, 0), [cart]);
 
   useEffect(() => {
@@ -49,7 +51,6 @@ const CheckOutForm = () => {
 
       setError("");
 
-      // Confirm Payment
       const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card,
@@ -67,7 +68,6 @@ const CheckOutForm = () => {
 
       setTransactionId(paymentIntent.id);
 
-      // Save payment in database
       const payment = {
         email: user?.email,
         price: totalPrice,
@@ -83,6 +83,27 @@ const CheckOutForm = () => {
 
       if (res.data?.paymentResult?.insertedId) {
         toast.success("Payment Successful! Continue Shopping");
+
+        // Send email notification via EmailJS
+      // Send email notification via EmailJS
+const emailData = {
+  user_email: user?.email || "default@example.com", // Default to your email if user email is not available
+  user_name: user?.displayName || "User",
+  transaction_id: paymentIntent.id,
+  total_amount: totalPrice.toFixed(2),
+};
+console.log("Email data:", emailData);
+
+emailjs.send('service_uu13qt9', 'template_pew7w0b', emailData, 'LD3EefzuvWY-avuiH')
+  .then(() => {
+    toast.success("Confirmation email sent.");
+  })
+  .catch((error) => {
+    console.error("Email sending error:", error);
+    toast.error("Failed to send confirmation email.");
+  });
+
+
         navigate("/");
       }
       
