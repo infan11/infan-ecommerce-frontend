@@ -51,6 +51,7 @@ const BookDetails = () => {
                 return;
             }
             const cartItem = {
+                itemId : id,
                 name: item.name,
                 photo: item.photo,
                 discountedPrice: item.discountedPrice,

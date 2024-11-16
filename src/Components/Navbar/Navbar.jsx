@@ -8,11 +8,13 @@ import { ImBooks } from "react-icons/im";
 import { CgAppleWatch } from "react-icons/cg";
 import { Drawer, Button, Typography, IconButton, List, ListItem, ListItemPrefix, ListItemSuffix, Chip, } from "@material-tailwind/react";
 import useAuth from "../Hooks/useAuth";
+
 import { CiMobile3 } from "react-icons/ci";
 import { LuLaptop2 } from "react-icons/lu";
 import { TbPerfume } from "react-icons/tb";
 import { BsWatch } from "react-icons/bs";
 import DarkMode from "../Home/DarkMode";
+
 import {
   Avatar,
   Menu,
@@ -29,9 +31,11 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/solid";
 import useCart from "../Hooks/useCart";
+import useAdmin from "../Hooks/useAdmin";
  
 const Navbar = () => {
   const { user, logout } = useAuth();
+  const [isAdmin] = useAdmin();
   const navigate = useNavigate();
   const [cart] = useCart();
   const handleLogout = () => {
@@ -162,15 +166,23 @@ const Navbar = () => {
     >
       BOOKS
     </NavLink>
-    <NavLink
-      to="/dashboard"
+   { user && isAdmin && <NavLink
+      to="/dashboard/adminHome"
       className={({ isActive, isPending }) =>
         isPending ? "pending" : isActive ? "text-white font-bold border-b-2 border-yellow-500 rounded" : "text-white font-bold text-[15px]  font-[Roboto]"
       }
     >
       DASHBOARD
-    </NavLink>
-  </>
+    </NavLink>}
+   { user && !isAdmin && <NavLink
+      to="/dashboard/userHome"
+      className={({ isActive, isPending }) =>
+        isPending ? "pending" : isActive ? "text-white font-bold border-b-2 border-yellow-500 rounded" : "text-white font-bold text-[15px]  font-[Roboto]"
+      }
+    >
+      DASHBOARD
+    </NavLink>}
+  </>  
   return (
     <div>
       {/* First Navbar */}
@@ -249,7 +261,7 @@ const Navbar = () => {
                   <NavLink
                     to="/login"
                     className={({ isActive, isPending }) =>
-                      isPending ? "pending" : isActive ? "text-black font-bold" : "text-black font-bold text-[18px]  md:mt-4 mr-4 font-[Roboto]"
+                      isPending ? "pending" : isActive ? " font-bold" : " font-bold text-[18px]  md:mt-4 mr-4 font-[Roboto]"
                     }
                   >
                     Login

@@ -16,7 +16,9 @@ const AllUser = () => {
             const res = await axiosSecure.get("/users")
             return res.data
         }
+        
     })
+ 
     const handleRemove = id => {
         Swal.fire({
             title: "Are you sure?",

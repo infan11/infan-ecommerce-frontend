@@ -54,7 +54,9 @@ const MyCart = () => {
                 <title>DASHOBARD | MY CART</title>
            
             </Helmet>
-            <div className="mb-11">
+            {
+                cart.length > 0 ? (
+                    <div className="mb-11">
                 <table className="table w-full">
                     <thead className='bg-orange-900 text-white '>
                         <tr>
@@ -138,6 +140,15 @@ const MyCart = () => {
              </Link>
                 </div>
             </div>
+                ) : (
+                  <div className=' min-h-screen justify-center pt-28 items-center'>
+                    <img className='w-16 mx-auto rounded-2xl' src={"https://i.ibb.co.com/88JDM0z/remove-from-cart-12316609.png"} alt="" />
+                    <p className='text-center font-bold text-red-600'>Your cart is empty</p>
+                    <p className='text-center'>Continue shopping</p>
+                    <Link className='' to={"/"}>  <p className='text-center  border-2 p-2 w-24 mx-auto mt-2'>EXPLORE </p> </Link>
+                  </div>
+                )
+            }
         </div>
     );
 };

@@ -48,6 +48,7 @@ const AccessoriesDetails = () => {
     const handleAddToCart = () => {
         if (user && user.email) {
             const cartItem = {
+                itemId : id,
                 name: item.name,
                 photo: item.photo,
                 discountedPrice: item.discountedPrice,

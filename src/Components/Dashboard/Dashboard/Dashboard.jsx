@@ -50,7 +50,7 @@ const Dashboard = () => {
               <Drawer open={open} onClose={closeDrawer}>
                 <div className="mb-2 flex items-center justify-between p-4">
                   <Typography variant="h5" color="blue-gray">
-                    Material Tailwind
+                    DASHBOARD
                   </Typography>
                   <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
                     <svg
@@ -142,6 +142,14 @@ const Dashboard = () => {
                         </ListItemSuffix>
                       </ListItem>
                     </Link>
+                    <Link to={"/dashboard/userHome"}>
+                    <ListItem>
+                      <ListItemPrefix>
+                        <p className='text-xl'>  <MdAdminPanelSettings /></p>
+                      </ListItemPrefix>
+                      User Home
+                    </ListItem>
+                  </Link>
                     <Link to={"/dashboard/myCart"}>
                       <ListItem>
                         <ListItemPrefix>
@@ -179,6 +187,7 @@ const Dashboard = () => {
                         Payment History
                       </ListItem>
                     </Link></> : <>
+                   
                     <Link to={"/dashboard/myCart"}>
                       <ListItem>
                         <ListItemPrefix>
@@ -217,30 +226,9 @@ const Dashboard = () => {
                       </ListItem>
                     </Link>
 
-                    <Link to={"/"}>
-                      <ListItem>
-                        <ListItemPrefix>
-                          <p className='text-xl'><IoMdHome /></p>
-                        </ListItemPrefix>
-                        Home
-                      </ListItem>
-                    </Link>
-                    <Link to={"/mens"}>
-                      <ListItem>
-                        <ListItemPrefix>
-                          <p className='text-xl'><FaMale /></p>
-                        </ListItemPrefix>
-                        Mens
-                      </ListItem>
-                    </Link>
-                    <Link to={'/books'}>
-                      <ListItem>
-                        <ListItemPrefix>
-                          <p className='text-xl'><ImBooks /></p>
-                        </ListItemPrefix>
-                        Books
-                      </ListItem>
-                    </Link>
+
+                
+               
                   </>
 
                   }

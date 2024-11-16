@@ -32,6 +32,7 @@ import PrivateRoutes from "../Components/PrivateRoutes/PrivateRoutes";
 import CheckOut from "../Components/Dashboard/CheckOut/checkOut";
 import Payment from "../Components/Dashboard/Payment/Payment/Payment";
 import ManageItem from "../Components/Dashboard/ManageItems/ManageItem";
+import UserHome from "../Components/Dashboard/UserHome/UserHome";
 
 export const router = createBrowserRouter([
     {
@@ -119,6 +120,10 @@ export const router = createBrowserRouter([
             {
                 path: "/dashboard/adminHome",
                  element : <AdminHome></AdminHome>
+            },
+            {
+                path: "/dashboard/userHome",
+                 element : <UserHome/>
             },
             {
                 path: "/dashboard/addItem",
