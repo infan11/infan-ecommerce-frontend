@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
 import { Button } from '@material-tailwind/react';
+import { Link } from 'react-router-dom';
 
 function SearchFilterComponent() {
   const [data, setData] = useState([]);
@@ -30,7 +31,7 @@ function SearchFilterComponent() {
 
 
   return (
-    <div className="max-w-7xl mx-auto md:px-24">
+    <div className=" min-h-screen max-w-7xl mx-auto md:px-24 ">
       <div className="w-full max-w-sm min-w-[200px]">
         <div className="relative flex items-center">
           <div className="absolute flex items-center">
@@ -57,9 +58,29 @@ function SearchFilterComponent() {
         {filteredData.length > 0 ? (
           <ul>
             {filteredData.map((item) => (
-              <li key={item.id} className="border-b border-slate-200 py-2">
-                {item.name}
-              </li>
+               <Link to={`/gadgetDetails/${item._id}`}>
+                <div>
+
+<td>
+  <div className="flex items-center gap-3">
+    <div className="avatar">
+      <div className="mask mask-squircle h-12 w-12">
+        <img
+          src={item.photo}
+          />
+      </div>
+    </div>
+    <div>
+      <div className="font-bold">{item.name}</div>
+      <div className="text-sm opacity-50">{item.discountedPrice}</div>
+    </div>
+  </div>
+</td>
+
+
+
+</div>
+               </Link>
             ))}
           </ul>
         ) : (

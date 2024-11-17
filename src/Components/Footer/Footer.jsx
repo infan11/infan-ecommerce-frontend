@@ -60,7 +60,7 @@ const Footer = () => {
 <Link to={"https://www.termsfeed.com/live/26910920-0ffd-477e-a0a7-b4461c53ae94"}>
 <footer className="footer footer-center   p-4">
   <aside>
-    <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
+    <p>Copyright © {new Date().getFullYear()} - All right INFAN WEB</p>
   </aside>
 </footer>
 </Link>

@@ -75,7 +75,7 @@ const CheckOutForm = () => {
         date: new Date(),
         cardId: cart.map(item => item._id),
         addItemsId: cart.map(item => item._id),
-        status: "pending",
+        status: "success",
       };
 
       const res = await axiosSecure.post("/payments", payment);
