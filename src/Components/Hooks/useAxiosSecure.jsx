@@ -11,7 +11,7 @@ const useAxiosSecure = () => {
 
    axiosSecure.interceptors.request.use(function (config) {
     const token = localStorage.getItem("access-token");
-    console.log('Request by Interceptors' , token);
+    // // console.log('Request by Interceptors' , token);
     config.headers.authorization = `Bearer ${token}`
     return config;
    } , function (error ) {
@@ -21,7 +21,7 @@ const useAxiosSecure = () => {
     return response;
     } , async (error) => {
        const status = error.response.status;
-    //    console.log("Unauthorized access" , status);
+    //    // // console.log("Unauthorized access" , status);
        if(status === 401 || status === 403){
         // await logout()
         // navigate('/login')

@@ -193,7 +193,7 @@ const AddAccessories = () => {
     }
 
     const onSubmit = async (data) => {
-        console.log("form", data);
+        // // console.log("form", data);
         const photo = data.photo?.[0];
         const imageData = await imageUpload(photo);
 
@@ -207,7 +207,7 @@ const AddAccessories = () => {
             discountedPrice: parseFloat(data.discountedPrice),
             photo: imageData?.data?.display_url || ""
         };
-        console.log(addItems);
+        // // console.log(addItems);
         axiosPublic.post("/addItems", addItems)
             .then(res => {
                 if (res.data.insertedId) {

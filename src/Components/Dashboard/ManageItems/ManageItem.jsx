@@ -23,7 +23,7 @@ const ManageItem = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/addItems/${id}`)
                     .then(res => {
-                        console.log(res.data);
+                        // // console.log(res.data);
                         if (res.data.deletedCount < 0) {
                             toast.success("Successfully deleted")
                             

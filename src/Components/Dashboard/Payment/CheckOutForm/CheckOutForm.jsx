@@ -12,7 +12,7 @@ const CheckOutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useAuth();
-  console.log("user",user?.email);
+  // // console.log("user",user?.email);
   const [checkOut] = useCheckout(); // atr modde email ase : email
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
@@ -91,7 +91,7 @@ const emailData = {
   transaction_id: paymentIntent.id,
   total_amount: totalPrice.toFixed(2),
 };
-console.log("Email data:", emailData);
+// // console.log("Email data:", emailData);
 
 emailjs.send(import.meta.env.VITE_SERVICE_KEY_EMAILJS, import.meta.env.VITE_TEMPLATE_KEY_EMAILJS, emailData, import.meta.env.VITE_API_KEY_EMAILJS)
   .then(() => {

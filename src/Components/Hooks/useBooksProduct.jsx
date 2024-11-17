@@ -8,7 +8,7 @@ const useBooksProduct = () => {
         queryKey: ["booksProduct"],
         queryFn: async () => {
             const res = await axiosSecure.get("/addItems")
-           console.log( "data",res.data);
+           // // console.log( "data",res.data);
            return res.data 
         }
     })

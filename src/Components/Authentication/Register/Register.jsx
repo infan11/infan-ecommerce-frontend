@@ -19,11 +19,11 @@ const Register = () => {
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/"
   const onSubmit = data => {
-    console.log("data", data);
+    // // console.log("data", data);
     createUser(data.email, data.password)
       .then(result => {
         const registerUser = result.user;
-        console.log(registerUser);
+        // // console.log(registerUser);
         updateUserProfile(data.name, null)
           .then(() => {
             const userInfo = {
@@ -61,7 +61,7 @@ const Register = () => {
     googleUserProvider()
       .then(result => {
         const googleUser = result.user;
-        console.log(googleUser);
+        // // console.log(googleUser);
         const userInfo = {
           email: result.user?.email,
           name: result.user?.displayName

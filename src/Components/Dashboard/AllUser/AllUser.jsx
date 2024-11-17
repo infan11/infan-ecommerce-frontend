@@ -32,7 +32,7 @@ const AllUser = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/users/${id}`)
                     .then(res => {
-                        console.log(res.data);
+                        // // console.log(res.data);
                         if (res.data.deletedCount < 0) {
                             toast.success("Successfully deleted")
 
@@ -47,7 +47,7 @@ const AllUser = () => {
     const handleMakeAdmin = id => {
         axiosSecure.patch(`/users/admin/${id}`)
             .then(res => {
-                console.log(res.data);
+                // // console.log(res.data);
                 if (res.data.modifiedCount < 0) {
 
                     toast.success("Successfully deleted")

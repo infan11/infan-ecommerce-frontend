@@ -157,7 +157,7 @@ const CheckOut = () => {
     };
 
     const onSubmit = (data) => {
-        console.log(data);
+        // // console.log(data);
         const CheckOutItems = {
             name: data.name,
             category: localCountry?.value,
@@ -169,10 +169,10 @@ const CheckOut = () => {
 
 
         };
-        console.log(CheckOutItems);
+        // // console.log(CheckOutItems);
         axiosSecure.post("/checkOut", CheckOutItems)
             .then(res => {
-                console.log(res.data);
+                // // console.log(res.data);
                 if (res.data.insertedId) {
                     toast.success("Payment Please")
                 }

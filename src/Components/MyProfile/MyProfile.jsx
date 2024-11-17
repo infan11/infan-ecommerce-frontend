@@ -28,14 +28,14 @@ const MyProfile = () => {
     const photo = form.photo.files[0];
     const imageData = await imageUpload(photo);
     const imageUrl = imageData?.data?.display_url || ""
-    console.log("Uploaded Image URL:", imageUrl);
+    // // console.log("Uploaded Image URL:", imageUrl);
 
     // Update the user profile with the name and photoURL
     handleUpdateUser(name, imageUrl);
   };
 
   const handleUpdateUser = (name, photo) => {
-    console.log( "image", photo);
+    // // console.log( "image", photo);
     const profile = {
       displayName: name,
       photoURL: photo, // Ensure that photo is a string URL here

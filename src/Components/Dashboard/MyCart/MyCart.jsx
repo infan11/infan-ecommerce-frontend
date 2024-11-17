@@ -11,7 +11,7 @@ import { Helmet } from 'react-helmet';
 const MyCart = () => {
     const [cart, refetch] = useCart();
     const [mensProduct] = useProduct()
-    console.log("cart found",cart);
+    // // console.log("cart found",cart);
     const axiosSecure = useAxiosSecure();
 
     const subTotal = cart.reduce((total, item) => {
@@ -35,7 +35,7 @@ const MyCart = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/cart/${id}`)
                     .then(res => {
-                        console.log(res.data);
+                        // // console.log(res.data);
                         if (res.data.deletedCount < 0) {
                             toast.success("Successfully deleted")
 

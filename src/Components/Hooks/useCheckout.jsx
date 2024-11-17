@@ -10,8 +10,8 @@ const useCheckout = () => {
         queryKey : ["checkOut"],
         queryFn : async () => {
             const res = await axiosSecure.get(`/checkOut?email=${user?.email}`)
-            console.log("fh" , checkOut.length);
-            console.log("found data checkout" , res.data);
+            // // console.log("fh" , checkOut.length);
+            // // console.log("found data checkout" , res.data);
             return  res.data
         } 
     })
