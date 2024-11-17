@@ -6,7 +6,7 @@ const useAxiosSecure = () => {
     const { logout } = useAuth(null)
     const navigate = useNavigate();
     const axiosSecure = axios.create({
-        baseURL: "http://localhost:5000"
+        baseURL: "https://infan-ecommerce-backend-exjcp1meh-infan11s-projects.vercel.app"
     })
 
    axiosSecure.interceptors.request.use(function (config) {

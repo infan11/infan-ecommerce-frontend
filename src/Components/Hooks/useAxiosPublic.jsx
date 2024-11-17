@@ -2,7 +2,7 @@ import axios from "axios";
 
 const useAxiosPublic = () => {
     const axiosPublic = axios.create({
-        baseURL : "http://localhost:5000"
+        baseURL : "https://infan-ecommerce-backend-exjcp1meh-infan11s-projects.vercel.app"
     })
     return axiosPublic;
 
