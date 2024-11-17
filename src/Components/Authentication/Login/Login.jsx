@@ -16,11 +16,11 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/"
   const {login ,googleUserProvider} = useContext(AuthContext);
   const onSubmit = data  => {
-    console.log(data);
+    (data);
     login(data.email , data.password)
     .then(result => {
       const loginUser = result.user;
-      console.log(loginUser)
+      (loginUser)
       if(loginUser){
         toast.success('Successfully Login')
       }
@@ -41,7 +41,7 @@ const Login = () => {
     googleUserProvider()
     .then(result => {
       const googleUser = result.user;
-      console.log(googleUser)
+      (googleUser)
       if(googleUser){
         toast.success("Successfully Google Login")
       }

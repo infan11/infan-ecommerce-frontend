@@ -21,7 +21,7 @@ const useAxiosSecure = () => {
     return response;
     } , async (error) => {
        const status = error.response.status;
-       console.log("Unauthorized access" , status);
+    //    console.log("Unauthorized access" , status);
        if(status === 401 || status === 403){
         // await logout()
         // navigate('/login')
